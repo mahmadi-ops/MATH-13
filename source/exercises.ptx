@@ -315,7 +315,4 @@ The same parabola and focus as before, with a red right triangle
       </exercise>
 </worksheet>
 
-<!-- ================= Lagrange Multipliers ================= -->
-<xi:include href="lagrange_exercise.ptx"/>
-
 </chapter>
