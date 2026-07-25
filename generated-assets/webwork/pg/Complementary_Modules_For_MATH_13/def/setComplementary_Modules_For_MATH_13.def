@@ -6,6 +6,10 @@ screenHeaderFile  = Complementary_Modules_For_MATH_13/header/Complementary_Modul
 description       = Complementary Modules For MATH 13
 problemListV2
 problem_start
-source_file = Complementary_Modules_For_MATH_13/17_4_1-Matching_Quadric_Surfaces.pg
+source_file = Complementary_Modules_For_MATH_13/10_1.pg
 problem_id = 1
+problem_end
+problem_start
+source_file = Complementary_Modules_For_MATH_13/10_3.pg
+problem_id = 3
 problem_end
