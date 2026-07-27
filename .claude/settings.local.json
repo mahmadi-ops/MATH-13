@@ -115,7 +115,12 @@
       "Bash(curl -s -o /claude-0/-workspaces-MATH-13/dbe1e847-3dba-4bb8-880c-2d56728c3b92/scratchpad/site.html -w '%{http_code}' --max-time 25 -L https://mahmadi-ops.github.io/MATH-13/)",
       "Bash(grep -v '^$')",
       "Bash(curl -s --max-time 20 \"https://api.github.com/repos/mahmadi-ops/MATH-13/pages\")",
-      "Bash(curl -s --max-time 25 -L https://mahmadi-ops.github.io/MATH-13/frontmatter.html -o /claude-0/-workspaces-MATH-13/dbe1e847-3dba-4bb8-880c-2d56728c3b92/scratchpad/fm.html -w 'HTTP %{http_code}\\\\n')"
+      "Bash(curl -s --max-time 25 -L https://mahmadi-ops.github.io/MATH-13/frontmatter.html -o /claude-0/-workspaces-MATH-13/dbe1e847-3dba-4bb8-880c-2d56728c3b92/scratchpad/fm.html -w 'HTTP %{http_code}\\\\n')",
+      "Bash(SP=/claude-0/-workspaces-MATH-13/54388eac-dcae-46d0-bcc5-1cb36efdf722/scratchpad *)",
+      "Bash(awk '/<section xml:id=\"sec-hyp-real-life\"/,/<\\\\/section>/' /claude-0/-workspaces-MATH-13/54388eac-dcae-46d0-bcc5-1cb36efdf722/scratchpad/ref-repo/source/ch-7-3.ptx)"
+    ],
+    "additionalDirectories": [
+      "/workspaces/MATH-13/source"
     ]
   }
 }
