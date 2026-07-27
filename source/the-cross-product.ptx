@@ -50,169 +50,23 @@ appreciate the role of cross product in determining torque.
 <section xml:id="sec-cross-definition">
 <title>Definition and Properties of the Cross Product</title>
 
-<p>
-Given two vectors <m>\mathbf u</m> and <m>\mathbf v</m> in
-<m>\mathbb R^3</m>, the <term>cross product</term>
-<m>\mathbf u \times \mathbf v</m> is a <em>vector</em> defined as follows.
-</p>
-
 <definition xml:id="def-cross-product">
 <title>The Cross Product (First Definition)</title>
 <statement>
 <p>
+Given two vectors <m>\mathbf u</m> and <m>\mathbf v</m> in
+<m>\mathbb R^3</m>, the <term>cross product</term>
+<m>\mathbf u \times \mathbf v</m> is the <em>vector</em> defined by
 <md xml:id="eq-cross-geometric" number="yes">
-\mathbf u \times \mathbf v = \left(|\mathbf u||\mathbf v|\sin\theta\right)\mathbf n.
+\mathbf u \times \mathbf v = \left(|\mathbf u||\mathbf v|\sin\theta\right)\mathbf n,
 </md>
+where <m>\theta</m>, with <m>0 \le \theta \le \pi</m>, is the angle
+between <m>\mathbf u</m> and <m>\mathbf v</m>, and <m>\mathbf n</m> is
+the unit vector orthogonal to both <m>\mathbf u</m> and <m>\mathbf v</m>
+whose direction is given by the right-hand rule.
 </p>
 </statement>
 </definition>
-
-<p>
-Note that <m>|\mathbf u||\mathbf v||\sin\theta|</m> is the length of the
-cross product <m>\mathbf u \times \mathbf v</m>. Since
-<m>\sin(\theta)</m> can be negative, we need to include its absolute
-value.
-</p>
-
-<p>
-The vector <m>\mathbf n</m> is the unit vector that determines the
-direction of <m>\mathbf u \times \mathbf v</m> using the right-hand
-rule. Note that <m>\mathbf u \times \mathbf v</m> is orthogonal
-(perpendicular) to both vectors, as shown in
-<xref ref="fig-cross-product-video"/>.
-</p>
-
-<figure xml:id="fig-cross-product-video">
-<caption>
-The cross product <m>\mathbf u \times \mathbf v</m> points in the
-direction of the unit vector <m>\mathbf n</m>, given by the right-hand
-rule, and is orthogonal to both <m>\mathbf u</m> and <m>\mathbf v</m>;
-its length is <m>|\mathbf u||\mathbf v||\sin\theta|</m>.
-</caption>
-<video xml:id="video-cross-product"
-       source="videos/cross_product_3d_1080p.mp4"
-       width="70%" aspect="16:9"/>
-</figure>
-
-<figure xml:id="fig-right-hand-rule-illustration">
-  <caption>Two equivalent right-hand rules for <m>\mathbf{u}\times\mathbf{v}</m>.</caption>
-  <sidebyside widths="48% 48%" margins="2%">
-    <figure xml:id="fig-rhr-imt">
-      <caption>Index–Middle–Thumb method.</caption>
-      <image source="images/rhr-index-middle-thumb.png" width="100%">
-        <shortdescription>Index finger along u, middle finger along v, thumb along u cross v.</shortdescription>
-      </image>
-    </figure>
-    <figure xml:id="fig-rhr-curl">
-      <caption>Rotating-fingers method.</caption>
-      <image source="images/rhr-rotating-fingers.png" width="100%">
-        <shortdescription>Fingers curl from u toward v, thumb points along u cross v.</shortdescription>
-      </image>
-    </figure>
-  </sidebyside>
-</figure>
-
-<figure xml:id="fig-right-hand-rule">
-<caption>
-The right-hand rule: the fingers of the right hand curl from
-<m>\mathbf u</m> toward <m>\mathbf v</m>, and the thumb points in the
-direction of the unit vector <m>\mathbf n</m>, along
-<m>\mathbf u \times \mathbf v</m>. Drag to rotate the picture.
-</caption>
-<interactive xml:id="interactive-right-hand-rule"
-             iframe="right-hand-rule.html"
-             width="100%" aspect="16:9"/>
-</figure>
-
-<p>
-From <xref ref="eq-cross-geometric"/>, it follows that the cross product
-of two parallel vectors is zero.
-</p>
-
-<fact xml:id="fact-parallel-vectors">
-<title>Parallel Vectors</title>
-<statement>
-<p>
-<md xml:id="eq-parallel-vectors" number="yes">
-\mathbf u \parallel \mathbf v \iff \mathbf u \times \mathbf v = \mathbf 0,
-\qquad \mathbf u, \mathbf v \neq \mathbf 0.
-</md>
-</p>
-</statement>
-</fact>
-
-<theorem xml:id="thm-cross-properties">
-<title>Properties of the Cross Product</title>
-<statement>
-<p>
-If <m>\mathbf u</m>, <m>\mathbf v</m>, and <m>\mathbf w</m> are any
-vectors and <m>r</m>, <m>s</m> are scalars, then
-</p>
-
-<p>
-<ol>
-<li><p><m>(r\mathbf u) \times (s\mathbf v) = (rs)(\mathbf u \times \mathbf v)</m></p></li>
-<li><p><m>\mathbf u \times (\mathbf v + \mathbf w) = \mathbf u \times \mathbf v + \mathbf u \times \mathbf w</m></p></li>
-<li><p><m>(\mathbf v + \mathbf w) \times \mathbf u = \mathbf v \times \mathbf u + \mathbf w \times \mathbf u</m></p></li>
-<li><p><m>\mathbf v \times \mathbf u = -(\mathbf u \times \mathbf v)</m></p></li>
-<li><p><m>\mathbf 0 \times \mathbf u = \mathbf 0</m></p></li>
-</ol>
-</p>
-</statement>
-</theorem>
-
-<remark xml:id="remark-anticommutative">
-<p>
-Note that property (4) follows from <xref ref="eq-cross-geometric"/> and
-the fact that <m>\sin(-\theta) = -\sin(\theta)</m>.
-</p>
-</remark>
-
-</section>
-
-<!-- ================================================================ -->
-<section xml:id="sec-cross-components">
-<title>Second Definition of the Cross Product</title>
-
-<p>
-Writing the vectors in components gives another definition for the cross
-product.
-</p>
-
-<definition xml:id="def-cross-components">
-<title>The Cross Product (Second Definition)</title>
-<statement>
-<p>
-If <m>\mathbf u = \langle u_1, u_2, u_3\rangle</m> and
-<m>\mathbf v = \langle v_1, v_2, v_3\rangle</m>, then
-<md xml:id="eq-cross-components" number="yes">
-\mathbf u \times \mathbf v =
-\langle u_2v_3 - u_3v_2,\; u_3v_1 - u_1v_3,\; u_1v_2 - u_2v_1\rangle.
-</md>
-</p>
-</statement>
-</definition>
-
-<p>
-One way to remember the second definition of the cross product is to
-write it as a determinant:
-<md xml:id="eq-cross-determinant" number="yes">
-\mathbf u \times \mathbf v =
-\begin{vmatrix}
-\mathbf i \amp \mathbf j \amp \mathbf k \\
-u_1 \amp u_2 \amp u_3 \\
-v_1 \amp v_2 \amp v_3
-\end{vmatrix}
-=
-\begin{vmatrix} u_2 \amp u_3 \\ v_2 \amp v_3 \end{vmatrix}\mathbf i
-- \begin{vmatrix} u_1 \amp u_3 \\ v_1 \amp v_3 \end{vmatrix}\mathbf j
-+ \begin{vmatrix} u_1 \amp u_2 \\ v_1 \amp v_2 \end{vmatrix}\mathbf k,
-</md>
-where
-<md xml:id="eq-two-by-two-determinant" number="yes">
-\begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix} = ad - bc.
-</md>
-</p>
 
 <p>
 The magnitude of <m>\mathbf u \times \mathbf v</m> is equal to the area
@@ -276,6 +130,190 @@ The parallelogram built on the vectors <m>\mathbf u</m> and
 </statement>
 </fact>
 
+<p>
+Note that <m>|\mathbf u||\mathbf v||\sin\theta|</m> is the length of the
+cross product <m>\mathbf u \times \mathbf v</m>. Since
+<m>\sin(\theta)</m> can be negative, we need to include its absolute
+value.
+</p>
+
+<p>
+The vector <m>\mathbf n</m> is the unit vector that determines the
+direction of <m>\mathbf u \times \mathbf v</m> using the right-hand
+rule. Note that <m>\mathbf u \times \mathbf v</m> is orthogonal
+(perpendicular) to both vectors, as shown in
+<xref ref="fig-cross-product-video"/>.
+</p>
+
+<figure xml:id="fig-cross-product-video">
+<caption>
+The cross product <m>\mathbf u \times \mathbf v</m> points in the
+direction of the unit vector <m>\mathbf n</m>, given by the right-hand
+rule, and is orthogonal to both <m>\mathbf u</m> and <m>\mathbf v</m>;
+its length is <m>|\mathbf u||\mathbf v||\sin\theta|</m>.
+</caption>
+<video xml:id="video-cross-product"
+       source="videos/cross_product_3d_1080p.mp4"
+       width="70%" aspect="16:9"/>
+</figure>
+
+<figure xml:id="fig-right-hand-rule-illustration">
+  <caption>Two equivalent right-hand rules for <m>\mathbf{u}\times\mathbf{v}</m>.</caption>
+  <sidebyside widths="48% 48%" margins="2%">
+    <figure xml:id="fig-rhr-imt">
+      <caption>Index–Middle–Thumb method.</caption>
+      <image source="images/rhr-index-middle-thumb.png" width="100%">
+        <shortdescription>Index finger along u, middle finger along v, thumb along u cross v.</shortdescription>
+      </image>
+    </figure>
+    <figure xml:id="fig-rhr-curl">
+      <caption>Rotating-fingers method.</caption>
+      <image source="images/rhr-rotating-fingers.png" width="100%">
+        <shortdescription>Fingers curl from u toward v, thumb points along u cross v.</shortdescription>
+      </image>
+    </figure>
+  </sidebyside>
+</figure>
+
+<fact xml:id="fact-parallel-vectors">
+<title>Parallel Vectors</title>
+<statement>
+<p>
+From <xref ref="eq-cross-geometric"/>, it follows that the cross product
+of two parallel vectors is zero.
+</p>
+<p>
+<md xml:id="eq-parallel-vectors" number="yes">
+\mathbf u \parallel \mathbf v \iff \mathbf u \times \mathbf v = \mathbf 0,
+\qquad \mathbf u, \mathbf v \neq \mathbf 0.
+</md>
+</p>
+</statement>
+</fact>
+
+<theorem xml:id="thm-cross-properties">
+<title>Properties of the Cross Product</title>
+<statement>
+<p>
+If <m>\mathbf u</m>, <m>\mathbf v</m>, and <m>\mathbf w</m> are any
+vectors and <m>r</m>, <m>s</m> are scalars, then
+</p>
+
+<p>
+<ol>
+<li><p><m>(r\mathbf u) \times (s\mathbf v) = (rs)(\mathbf u \times \mathbf v)</m></p></li>
+<li><p><m>\mathbf u \times (\mathbf v + \mathbf w) = \mathbf u \times \mathbf v + \mathbf u \times \mathbf w</m></p></li>
+<li><p><m>(\mathbf v + \mathbf w) \times \mathbf u = \mathbf v \times \mathbf u + \mathbf w \times \mathbf u</m></p></li>
+<li><p><m>\mathbf v \times \mathbf u = -(\mathbf u \times \mathbf v)</m></p></li>
+<li><p><m>\mathbf 0 \times \mathbf u = \mathbf 0</m></p></li>
+</ol>
+</p>
+</statement>
+</theorem>
+
+<proof>
+<p>
+Although the cross product was defined geometrically above, all five
+properties are most easily checked using the equivalent component
+formula <xref ref="eq-cross-components"/> established in the next
+section: if <m>\mathbf a = \langle a_1,a_2,a_3\rangle</m> and
+<m>\mathbf b = \langle b_1,b_2,b_3\rangle</m>, then
+<m>\mathbf a \times \mathbf b =
+\langle a_2b_3-a_3b_2,\; a_3b_1-a_1b_3,\; a_1b_2-a_2b_1\rangle</m>.
+Write <m>\mathbf u = \langle u_1,u_2,u_3\rangle</m>,
+<m>\mathbf v = \langle v_1,v_2,v_3\rangle</m>, and
+<m>\mathbf w = \langle w_1,w_2,w_3\rangle</m>.
+</p>
+<p>
+<alert>(1)</alert> Each component of <m>(r\mathbf u)\times(s\mathbf v)</m>
+has the form <m>(ru_i)(sv_j) - (ru_j)(sv_i) = rs(u_iv_j-u_jv_i)</m>,
+which is <m>rs</m> times the corresponding component of
+<m>\mathbf u \times \mathbf v</m>. Hence
+<m>(r\mathbf u)\times(s\mathbf v) = (rs)(\mathbf u \times \mathbf v)</m>.
+</p>
+<p>
+<alert>(2)</alert> The first component of
+<m>\mathbf u \times (\mathbf v + \mathbf w)</m> is
+<md>
+u_2(v_3+w_3) - u_3(v_2+w_2) = (u_2v_3-u_3v_2) + (u_2w_3-u_3w_2),
+</md>
+which is the sum of the first components of
+<m>\mathbf u \times \mathbf v</m> and <m>\mathbf u \times \mathbf w</m>.
+The same holds for the other two components, so
+<m>\mathbf u \times (\mathbf v+\mathbf w)
+= \mathbf u \times \mathbf v + \mathbf u \times \mathbf w</m>.
+</p>
+<p>
+<alert>(3)</alert> By the same computation with the roles of the two
+factors exchanged, the first component of
+<m>(\mathbf v+\mathbf w)\times \mathbf u</m> is
+<m>(v_2+w_2)u_3 - (v_3+w_3)u_2 = (v_2u_3-v_3u_2) + (w_2u_3-w_3u_2)</m>,
+the sum of the first components of <m>\mathbf v \times \mathbf u</m> and
+<m>\mathbf w \times \mathbf u</m>; likewise for the other two components,
+so <m>(\mathbf v+\mathbf w)\times \mathbf u
+= \mathbf v \times \mathbf u + \mathbf w \times \mathbf u</m>.
+</p>
+<p>
+<alert>(4)</alert> The first component of <m>\mathbf v \times \mathbf u</m>
+is <m>v_2u_3 - v_3u_2 = -(u_2v_3-u_3v_2)</m>, the negative of the first
+component of <m>\mathbf u \times \mathbf v</m>; likewise for the other
+two components, so
+<m>\mathbf v \times \mathbf u = -(\mathbf u \times \mathbf v)</m>.
+</p>
+<p>
+<alert>(5)</alert> Since <m>\mathbf 0 = \langle 0,0,0\rangle</m>, every
+component of <m>\mathbf 0 \times \mathbf u</m> is a difference of
+products each containing a factor of <m>0</m>, so
+<m>\mathbf 0 \times \mathbf u = \mathbf 0</m>.
+</p>
+</proof>
+
+</section>
+
+<!-- ================================================================ -->
+<section xml:id="sec-cross-components">
+<title>Second Definition of the Cross Product</title>
+
+<p>
+Writing the vectors in components gives another definition for the cross
+product.
+</p>
+
+<definition xml:id="def-cross-components">
+<title>The Cross Product (Second Definition)</title>
+<statement>
+<p>
+If <m>\mathbf u = \langle u_1, u_2, u_3\rangle</m> and
+<m>\mathbf v = \langle v_1, v_2, v_3\rangle</m>, then
+<md xml:id="eq-cross-components" number="yes">
+\mathbf u \times \mathbf v =
+\langle u_2v_3 - u_3v_2,\; u_3v_1 - u_1v_3,\; u_1v_2 - u_2v_1\rangle.
+</md>
+</p>
+</statement>
+</definition>
+
+<p>
+One way to remember the second definition of the cross product is to
+write it as a determinant:
+<md xml:id="eq-cross-determinant" number="yes">
+\mathbf u \times \mathbf v =
+\begin{vmatrix}
+\mathbf i \amp \mathbf j \amp \mathbf k \\
+u_1 \amp u_2 \amp u_3 \\
+v_1 \amp v_2 \amp v_3
+\end{vmatrix}
+=
+\begin{vmatrix} u_2 \amp u_3 \\ v_2 \amp v_3 \end{vmatrix}\mathbf i
+- \begin{vmatrix} u_1 \amp u_3 \\ v_1 \amp v_3 \end{vmatrix}\mathbf j
++ \begin{vmatrix} u_1 \amp u_2 \\ v_1 \amp v_2 \end{vmatrix}\mathbf k,
+</md>
+where
+<md xml:id="eq-two-by-two-determinant" number="yes">
+\begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix} = ad - bc.
+</md>
+</p>
+
 <example xml:id="example-cross-compute">
 <title>Computing a cross product</title>
 <statement>
@@ -285,11 +323,7 @@ Calculate the cross product <m>\mathbf u \times \mathbf v</m> if
 <m>\mathbf v = \langle 3,-2,1\rangle</m>.
 </p>
 </statement>
-</example>
-
-<paragraphs xml:id="solution-cross-compute">
-<title>Solution</title>
-
+<solution>
 <p>
 <md>
 <mrow>
@@ -311,23 +345,8 @@ Calculate the cross product <m>\mathbf u \times \mathbf v</m> if
 </mrow>
 </md>
 </p>
-
-</paragraphs>
-
-<exercise xml:id="exercise-cross-identity">
-<statement>
-<p>
-Show that
-<m>(\mathbf u - \mathbf v) \times (\mathbf u + \mathbf v) = 2(\mathbf u \times \mathbf v)</m>.
-</p>
-</statement>
-</exercise>
-
-</section>
-
-<!-- ================================================================ -->
-<section xml:id="sec-perpendicular-vector">
-<title>Computing a Vector Perpendicular to Two Other Vectors</title>
+</solution>
+</example>
 
 <example xml:id="example-perpendicular-vector">
 <title>Computing a vector perpendicular to two other vectors</title>
@@ -338,11 +357,7 @@ Consider the points <m>A(1,-1,2)</m>, <m>B(2,0,-1)</m>, and
 <m>\vec{AB}</m> and <m>\vec{AC}</m>.
 </p>
 </statement>
-</example>
-
-<paragraphs xml:id="solution-perpendicular-vector">
-<title>Solution</title>
-
+<solution>
 <p>
 We first compute the two vectors:
 <md>
@@ -384,8 +399,6 @@ The unit vector in question is then computed as follows:
 \end{aligned}
 </md>
 </p>
-</paragraphs>
-
 <figure xml:id="fig-normal-vector-video">
 <caption>
 The unit vector <m>\mathbf n</m> is orthogonal to both
@@ -396,12 +409,8 @@ points <m>A</m>, <m>B</m>, and <m>C</m>.
        source="videos/normal_vector_3d_1080p.mp4"
        width="70%" aspect="16:9"/>
 </figure>
-
-</section>
-
-<!-- ================================================================ -->
-<section xml:id="sec-triangle-area">
-<title>Computing the Area of a Triangle</title>
+</solution>
+</example>
 
 <example xml:id="example-triangle-area">
 <title>Computing the area of a triangle</title>
@@ -412,11 +421,7 @@ Find the area of the triangle with the vertices <m>A(1,-1,2)</m>,
 points that we had in the previous example.
 </p>
 </statement>
-</example>
-
-<paragraphs xml:id="solution-triangle-area">
-<title>Solution</title>
-
+<solution>
 <p>
 To find the area of the triangle, we first compute the area of the
 parallelogram built on <m>\vec{AB}</m> and <m>\vec{AC}</m>, shown in
@@ -432,8 +437,6 @@ parallelogram built on <m>\vec{AB}</m> and <m>\vec{AC}</m>, shown in
 </mrow>
 </md>
 </p>
-</paragraphs>
-
 <figure xml:id="fig-triangle-area">
 <caption>
 The triangle built on the vectors <m>\vec{AB}</m> and <m>\vec{AC}</m>
@@ -469,6 +472,39 @@ is half of the corresponding parallelogram.
 </prefigure>
 </image>
 </figure>
+</solution>
+</example>
+
+<exercise xml:id="exercise-cross-identity">
+<statement>
+<p>
+Show that
+<m>(\mathbf u - \mathbf v) \times (\mathbf u + \mathbf v) = 2(\mathbf u \times \mathbf v)</m>.
+</p>
+</statement>
+<solution>
+<p>
+Using the distributive properties of the cross product from
+<xref ref="thm-cross-properties"/>,
+<md>
+(\mathbf u - \mathbf v) \times (\mathbf u + \mathbf v)
+= \mathbf u \times \mathbf u + \mathbf u \times \mathbf v
+- \mathbf v \times \mathbf u - \mathbf v \times \mathbf v.
+</md>
+Since a vector is parallel to itself,
+<m>\mathbf u \times \mathbf u = \mathbf 0</m> and
+<m>\mathbf v \times \mathbf v = \mathbf 0</m> by
+<xref ref="fact-parallel-vectors"/>. Also
+<m>\mathbf v \times \mathbf u = -(\mathbf u \times \mathbf v)</m> by
+<xref ref="thm-cross-properties"/>, so
+<md>
+(\mathbf u - \mathbf v) \times (\mathbf u + \mathbf v)
+= \mathbf 0 + \mathbf u \times \mathbf v - \bigl(-(\mathbf u \times \mathbf v)\bigr) - \mathbf 0
+= 2(\mathbf u \times \mathbf v).
+</md>
+</p>
+</solution>
+</exercise>
 
 </section>
 
@@ -476,34 +512,18 @@ is half of the corresponding parallelogram.
 <section xml:id="sec-true-false">
 <title>True or False?</title>
 
-<example xml:id="example-true-false">
-<title>True or False?</title>
-<statement>
-<p>
-<ol marker="I.">
-<li>
+<exercise xml:id="exercise-true-false-1">
+<title>True or False</title>
+<statement correct="yes">
 <p>
 Let <m>\vec u</m> and <m>\vec v</m> be two vectors in
 <m>\mathbb R^3</m>. Then, <m>\vec u \times \text{proj}_{\vec v}\vec u</m>
 is perpendicular to <m>\vec u - \text{proj}_{\vec v}\vec u</m>.
 </p>
-</li>
-<li>
-<p>
-Let <m>\vec u</m> and <m>\vec v</m> be two standard unit vectors in
-<m>\mathbb R^3</m>. Then,
-<m>\left(\vec u \cdot \vec v\right)^2 + \left|\vec v \times \vec u\right|^2 = 1</m>.
-</p>
-</li>
-</ol>
-</p>
 </statement>
-
-<solution xml:id="solution-true-false">
-
+<feedback>
 <p>
-<em>Statement I</em> is true. Note that
-<m>\vec u \times \text{proj}_{\vec v}\vec u</m> is perpendicular to both
+Note that <m>\vec u \times \text{proj}_{\vec v}\vec u</m> is perpendicular to both
 <m>\vec u</m> and <m>\text{proj}_{\vec v}\vec u</m>, which gives:
 <md xml:id="eq-true-false-1">
        \begin{aligned}
@@ -515,14 +535,24 @@ Let <m>\vec u</m> and <m>\vec v</m> be two standard unit vectors in
 = 0 - 0 = 0,
 \end{aligned}
 </md>
-</p>
-<p>
 and therefore <m>\vec u \times \text{proj}_{\vec v}\vec u</m> is
 perpendicular to <m>\vec u - \text{proj}_{\vec v}\vec u</m>.
 </p>
+</feedback>
+</exercise>
 
+<exercise xml:id="exercise-true-false-2">
+<title>True or False</title>
+<statement correct="yes">
 <p>
-<em>Statement II</em> is true. Note that:
+Let <m>\vec u</m> and <m>\vec v</m> be two standard unit vectors in
+<m>\mathbb R^3</m>. Then,
+<m>\left(\vec u \cdot \vec v\right)^2 + \left|\vec v \times \vec u\right|^2 = 1</m>.
+</p>
+</statement>
+<feedback>
+<p>
+Note that:
 <md>
 <mrow>
 \left(\vec u \cdot \vec v\right)^2 + \left|\vec v \times \vec u\right|^2
@@ -542,12 +572,11 @@ have <m>|\vec u| = |\vec v| = 1</m>, which means:
 = |\vec u|^2|\vec v|^2 = 1.
 </md>
 </p>
-</solution>
-</example>
+</feedback>
+</exercise>
 
 </section>
 
-<!-- Insert into the-cross-product.ptx (e.g. after sec-triangle-area) -->
 <!-- ================================================================ -->
 <section xml:id="sec-torque">
 <title>Application: Torque</title>
