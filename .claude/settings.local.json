@@ -121,7 +121,9 @@
       "Bash(curl -s https://mahmadi-ops.github.io/M13-Mehdi/worksheet-exercises-cross-product.html -o /claude-0/-workspaces-MATH-13/3e155ef2-c822-44f7-a0d3-54f2e01e1cce/scratchpad/ws.html)",
       "Bash(curl -s \"https://api.github.com/repos/mahmadi-ops/M13-Mehdi/commits?path=source/exercises-cross-product.ptx&per_page=5\")",
       "Bash(curl -s \"https://api.github.com/repos/mahmadi-ops/M13-Mehdi/branches\")",
-      "Read(//root/.ptx/2.44.0/**)"
+      "Read(//root/.ptx/2.44.0/**)",
+      "Bash(grep -n \"activity xml:id\\\\|</activity>\\\\|<p>$\")",
+      "Bash(curl -s \"https://api.github.com/repos/mahmadi-ops/MATH-13/actions/runs?per_page=5\")"
     ],
     "additionalDirectories": [
       "/workspaces/MATH-13/source"
