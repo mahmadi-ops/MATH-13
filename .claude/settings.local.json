@@ -123,7 +123,8 @@
       "Bash(curl -s \"https://api.github.com/repos/mahmadi-ops/M13-Mehdi/branches\")",
       "Read(//root/.ptx/2.44.0/**)",
       "Bash(grep -n \"activity xml:id\\\\|</activity>\\\\|<p>$\")",
-      "Bash(curl -s \"https://api.github.com/repos/mahmadi-ops/MATH-13/actions/runs?per_page=5\")"
+      "Bash(curl -s \"https://api.github.com/repos/mahmadi-ops/MATH-13/actions/runs?per_page=5\")",
+      "Bash(curl -s https://mahmadi-ops.github.io/MATH-13/sec-torque.html)"
     ],
     "additionalDirectories": [
       "/workspaces/MATH-13/source"
