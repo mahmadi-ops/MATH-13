@@ -117,7 +117,11 @@
       "Bash(curl -s --max-time 20 \"https://api.github.com/repos/mahmadi-ops/MATH-13/pages\")",
       "Bash(curl -s --max-time 25 -L https://mahmadi-ops.github.io/MATH-13/frontmatter.html -o /claude-0/-workspaces-MATH-13/dbe1e847-3dba-4bb8-880c-2d56728c3b92/scratchpad/fm.html -w 'HTTP %{http_code}\\\\n')",
       "Bash(SP=/claude-0/-workspaces-MATH-13/54388eac-dcae-46d0-bcc5-1cb36efdf722/scratchpad *)",
-      "Bash(awk '/<section xml:id=\"sec-hyp-real-life\"/,/<\\\\/section>/' /claude-0/-workspaces-MATH-13/54388eac-dcae-46d0-bcc5-1cb36efdf722/scratchpad/ref-repo/source/ch-7-3.ptx)"
+      "Bash(awk '/<section xml:id=\"sec-hyp-real-life\"/,/<\\\\/section>/' /claude-0/-workspaces-MATH-13/54388eac-dcae-46d0-bcc5-1cb36efdf722/scratchpad/ref-repo/source/ch-7-3.ptx)",
+      "Bash(curl -s https://mahmadi-ops.github.io/M13-Mehdi/worksheet-exercises-cross-product.html -o /claude-0/-workspaces-MATH-13/3e155ef2-c822-44f7-a0d3-54f2e01e1cce/scratchpad/ws.html)",
+      "Bash(curl -s \"https://api.github.com/repos/mahmadi-ops/M13-Mehdi/commits?path=source/exercises-cross-product.ptx&per_page=5\")",
+      "Bash(curl -s \"https://api.github.com/repos/mahmadi-ops/M13-Mehdi/branches\")",
+      "Read(//root/.ptx/2.44.0/**)"
     ],
     "additionalDirectories": [
       "/workspaces/MATH-13/source"

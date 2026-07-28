@@ -162,6 +162,9 @@ Then
 <section xml:id="sec-dot-product">
 <title>The Dot Product</title>
 
+<subsection xml:id="subsec-dot-definition">
+<title>Definition of the Dot Product</title>
+
 <definition xml:id="def-dot-product">
 <title>Dot Product</title>
 <statement>
@@ -279,6 +282,8 @@ For the angle between the sides <m>\vec{AC}</m> and <m>\vec{AB}</m>, we have
 </p>
 </solution>
 </example>
+
+</subsection>
 
 <subsection xml:id="subsec-properties">
 <title>Properties of the Dot Product</title>
