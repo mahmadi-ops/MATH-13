@@ -315,4 +315,8 @@ The same parabola and focus as before, with a red right triangle
       </exercise>
 </worksheet>
 
+<!-- ========= Runestone interactive question-type sampler ========= -->
+<!-- Uses dev-schema elements: validate with the CLI's dev schema option -->
+<xi:include href="exercises-runestone-samples.ptx"/>
+
 </chapter>

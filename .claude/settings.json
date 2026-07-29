@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o up-rs.ptx -w \"%{http_code}\\\\n\" https://raw.githubusercontent.com/mahmadi-ops/M13-Mehdi/main/source/exercises-runestone-samples.ptx)"
+    ]
+  }
+}
