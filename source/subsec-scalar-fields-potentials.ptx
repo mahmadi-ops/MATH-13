@@ -441,7 +441,7 @@ more commonly known as Hooke's Law.  Again, the force is perpendicular to the le
   \draw[->, oigreen, line width=1.3pt] (2.2,-0.8) -- (3.2,-0.8)
     node[anchor=west, oigreen, font=\small, inner sep=3pt] {$\nabla U$};
   \draw[->, oivermillion, line width=1.3pt] (2.2,-0.8) -- (1.2,-0.8);
-  \node[oivermillion, font=\small, anchor=north] at (1.75,-1.0)
+  \node[oivermillion, font=\small, anchor=north, fill=white, inner sep=2pt] at (1.7,-1.02)
     {$\mathbf F = -\nabla U$};
   \draw[black!55, line width=0.6pt] (2.38,-0.8) -- (2.38,-0.98) -- (2.2,-0.98);
   % ---- x = -a ----
