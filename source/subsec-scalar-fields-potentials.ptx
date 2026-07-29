@@ -112,7 +112,7 @@
   <m>U = mgy</m>.  When the height remains constant, the potential energy is constant.  The surface of constant potential energy is
   level surface - or an equipotential surface.
 
-  Using the potential and , the gravitational force is 
+  Using the potential, the gravitational force is
   <md>
     <mrow> {\mathbf F} \amp = -\nabla U </mrow>
     <mrow> \amp = -\frac{d}{dy}(mgy) \hat{\mathbf j}</mrow>
@@ -122,8 +122,158 @@
 </p>
 
 <p>
-Note: please place graphs of gravitational potential energy and gravitational force here.
+  <xref ref="fig-gravity-potential-gradient"/> shows the two halves of this statement side by
+  side. On the left is the physical picture: the mass, its height above the ground, and the
+  horizontal surfaces on which <m>U = mgy</m> does not change. On the right the same surfaces
+  are drawn again, now carrying the gradient and the force.
 </p>
+
+<figure xml:id="fig-gravity-potential-gradient">
+  <caption>
+    Gravitational potential energy near the earth's surface.
+    <em>Left:</em> a mass <m>m</m> at heights <m>y_1 \lt y_2 \lt y_3</m>. Since <m>U = mgy</m>
+    depends on the height alone, each dashed horizontal line is an equipotential surface: every
+    point on it carries the same potential energy.
+    <em>Right:</em> at every point <m>\nabla U = mg\,\hat{\mathbf j}</m> points straight up,
+    the direction in which <m>U</m> increases fastest, and the force
+    <m>\mathbf F = -\nabla U = -mg\,\hat{\mathbf j}</m> points straight down. Both are
+    perpendicular to the equipotential surfaces, as the right angles record.
+  </caption>
+  <sidebyside widths="48% 48%" margins="2%" valign="middle">
+    <figure xml:id="fig-gravity-height">
+      <caption>The mass and its height above the surface of the earth.</caption>
+      <image xml:id="image-gravity-height" width="100%">
+        <shortdescription>
+          A mass at height y above the ground, with three dashed horizontal lines of constant
+          gravitational potential energy.
+        </shortdescription>
+        <description>
+          <p>
+            The surface of the earth is drawn as a hatched horizontal line at the bottom, and a
+            vertical axis labeled <m>y</m> measures height above it. Three dashed blue horizontal
+            lines are drawn at heights <m>y_1</m>, <m>y_2</m>, and <m>y_3</m>, labeled
+            <m>U = mgy_1</m>, <m>U = mgy_2</m>, and <m>U = mgy_3</m>; these are the equipotential
+            surfaces, and higher lines carry larger potential energy. A small vermillion ball of
+            mass <m>m</m> rests on the middle line, and a double-headed arrow from the ground up
+            to the ball marks its height <m>y_2</m>. A box at the top records
+            <m>U = mgy</m>.
+          </p>
+        </description>
+        <latex-image>
+<![CDATA[\begin{tikzpicture}[>={Latex}, line join=round, line cap=round]
+  % Okabe-Ito colorblind-safe palette
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oivermillion}{RGB}{213,94,0}
+  % ---- surface of the earth ----
+  \fill[black!8] (-0.4,-0.45) rectangle (6.3,0);
+  \draw[black!70, line width=1pt] (-0.4,0) -- (6.3,0);
+  \foreach \i in {-0.1,0.3,...,6.3} {
+    \draw[black!40, line width=0.5pt] (\i,0) -- (\i-0.3,-0.32);
+  }
+  \node[black!70, font=\small, anchor=north] at (2.9,-0.5) {surface of the earth};
+  % ---- height axis ----
+  \draw[->, black!75, line width=0.7pt] (0.5,-0.05) -- (0.5,4.55)
+    node[anchor=south, font=\small] {$y$};
+  % ---- equipotential surfaces: U = mgy is constant on each ----
+  \draw[oiblue, dashed, line width=0.9pt] (0.15,1.2) -- (4.6,1.2)
+    node[anchor=west, oiblue, font=\small] {$U = mgy_1$};
+  \draw[oiblue, dashed, line width=0.9pt] (0.15,2.4) -- (4.6,2.4)
+    node[anchor=west, oiblue, font=\small] {$U = mgy_2$};
+  \draw[oiblue, dashed, line width=0.9pt] (0.15,3.6) -- (4.6,3.6)
+    node[anchor=west, oiblue, font=\small] {$U = mgy_3$};
+  % ---- ticks on the height axis ----
+  \draw[black!75, line width=0.7pt] (0.38,1.2) -- (0.62,1.2);
+  \node[black!75, font=\small, anchor=east] at (0.34,1.2) {$y_1$};
+  \draw[black!75, line width=0.7pt] (0.38,2.4) -- (0.62,2.4);
+  \node[black!75, font=\small, anchor=east] at (0.34,2.4) {$y_2$};
+  \draw[black!75, line width=0.7pt] (0.38,3.6) -- (0.62,3.6);
+  \node[black!75, font=\small, anchor=east] at (0.34,3.6) {$y_3$};
+  % ---- the object and its height ----
+  \draw[<->, black!75, line width=0.7pt] (2.9,0.03) -- (2.9,2.22)
+    node[pos=0.72, fill=white, inner sep=1.5pt, font=\small] {$y_2$};
+  \fill[oivermillion] (2.9,2.4) circle (0.17);
+  \draw[black!60, line width=0.5pt] (2.9,2.4) circle (0.17);
+  \node[anchor=south west, font=\small, inner sep=2pt] at (3.02,2.46) {$m$};
+  % ---- annotation ----
+  \node[anchor=north east, draw=black!30, rounded corners=2pt, fill=white,
+        inner sep=4pt, font=\small] at (6.3,5.4) {$U = mgy$};
+\end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </figure>
+    <figure xml:id="fig-gravity-force-gradient">
+      <caption>
+        The gradient, the force, and the equipotential surfaces they cross at right angles.
+      </caption>
+      <image xml:id="image-gravity-force-gradient" width="100%">
+        <shortdescription>
+          Upward gradient arrows and downward force arrows meeting the horizontal equipotential
+          lines at right angles.
+        </shortdescription>
+        <description>
+          <p>
+            The same hatched ground and the same three dashed blue horizontal equipotential lines
+            appear again. At three points, one on each line, a green arrow points straight up,
+            labeled <m>\nabla U</m>, and a vermillion arrow of the same length points straight
+            down, labeled <m>\mathbf F = -\nabla U</m>. The arrows are identical at every point,
+            because the field is uniform. A small square at each point marks the right angle
+            between the arrows and the equipotential line, so the force and the gradient cross
+            the level surfaces perpendicularly. A box at the top records
+            <m>\nabla U = mg\,\hat{\mathbf j}</m> and
+            <m>\mathbf F = -\nabla U = -mg\,\hat{\mathbf j}</m>.
+          </p>
+        </description>
+        <latex-image>
+<![CDATA[\begin{tikzpicture}[>={Latex}, line join=round, line cap=round]
+  % Okabe-Ito colorblind-safe palette
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oivermillion}{RGB}{213,94,0}
+  \definecolor{oigreen}{RGB}{0,158,115}
+  % ---- surface of the earth ----
+  \fill[black!8] (-0.4,-0.45) rectangle (6.3,0);
+  \draw[black!70, line width=1pt] (-0.4,0) -- (6.3,0);
+  \foreach \i in {-0.1,0.3,...,6.3} {
+    \draw[black!40, line width=0.5pt] (\i,0) -- (\i-0.3,-0.32);
+  }
+  \node[black!70, font=\small, anchor=north] at (2.9,-0.5) {surface of the earth};
+  % ---- height axis ----
+  \draw[->, black!75, line width=0.7pt] (0.5,-0.05) -- (0.5,4.55)
+    node[anchor=south, font=\small] {$y$};
+  % ---- the same equipotential surfaces ----
+  \draw[oiblue, dashed, line width=0.9pt] (0.15,1.2) -- (4.6,1.2)
+    node[anchor=west, oiblue, font=\small] {$U = mgy_1$};
+  \draw[oiblue, dashed, line width=0.9pt] (0.15,2.4) -- (4.6,2.4)
+    node[anchor=west, oiblue, font=\small] {$U = mgy_2$};
+  \draw[oiblue, dashed, line width=0.9pt] (0.15,3.6) -- (4.6,3.6)
+    node[anchor=west, oiblue, font=\small] {$U = mgy_3$};
+  % ---- gradient (up) and force (down) at three sample points ----
+  % lowest level curve
+  \draw[->, oigreen, line width=1.3pt] (1.4,1.2) -- (1.4,1.85);
+  \draw[->, oivermillion, line width=1.3pt] (1.4,1.2) -- (1.4,0.55);
+  \draw[black!55, line width=0.6pt] (1.4,0.98) -- (1.62,0.98) -- (1.62,1.2);
+  % middle level curve, where the mass sits
+  \fill[black!25] (2.9,2.4) circle (0.15);
+  \draw[black!45, line width=0.5pt] (2.9,2.4) circle (0.15);
+  \draw[->, oigreen, line width=1.3pt] (2.9,2.4) -- (2.9,3.05)
+    node[anchor=west, oigreen, font=\small, inner sep=2pt] {$\nabla U$};
+  \draw[->, oivermillion, line width=1.3pt] (2.9,2.4) -- (2.9,1.75)
+    node[anchor=west, oivermillion, font=\small, inner sep=2pt] {$\mathbf F = -\nabla U$};
+  \draw[black!55, line width=0.6pt] (2.9,2.18) -- (3.12,2.18) -- (3.12,2.4);
+  % highest level curve
+  \draw[->, oigreen, line width=1.3pt] (4.1,3.6) -- (4.1,4.25);
+  \draw[->, oivermillion, line width=1.3pt] (4.1,3.6) -- (4.1,2.95);
+  \draw[black!55, line width=0.6pt] (4.1,3.38) -- (4.32,3.38) -- (4.32,3.6);
+  % ---- annotation ----
+  \node[anchor=north east, draw=black!30, rounded corners=2pt, fill=white,
+        inner sep=4pt, font=\small, align=left] at (6.3,5.4)
+    {$\nabla U = mg\,\hat{\mathbf j}$\\[2pt]
+     $\mathbf F = -\nabla U = -mg\,\hat{\mathbf j}$};
+\end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </figure>
+  </sidebyside>
+</figure>
 
 <p>
 Using this same idea we can also look at the potential energy of a spring.  
@@ -139,8 +289,180 @@ more commonly known as Hooke's Law.  Again, the force is perpendicular to the le
 </p>
 
 <p>
-Note: please place graphs of spring potential energy and spring force here.
-  </p>
+  <xref ref="fig-spring-potential-gradient"/> tells the same story for the spring. Here the
+  potential energy depends only on <m>x</m>, so its level curves in the plane are the vertical
+  lines <m>x = \text{constant}</m>, and the force, which is horizontal, meets every one of them
+  at a right angle.
+</p>
+
+<figure xml:id="fig-spring-potential-gradient">
+  <caption>
+    A block on a spring.
+    <em>Left:</em> the block displaced a distance <m>x</m> from equilibrium, drawn above the
+    graph of its potential energy <m>U = \frac{1}{2}kx^2</m>; the two pictures share the same
+    horizontal scale, so the block sits directly above its own point on the parabola.
+    <em>Right:</em> because <m>U</m> depends on <m>x</m> alone, the equipotential curves are the
+    vertical lines <m>x = \text{constant}</m>. The gradient
+    <m>\nabla U = kx\,\hat{\mathbf i}</m> points away from equilibrium, the force
+    <m>\mathbf F = -kx\,\hat{\mathbf i}</m> points back toward it, and both cross the
+    equipotential lines at right angles. The arrows are twice as long on the outer lines
+    because <m>|\nabla U| = k|x|</m> grows with the displacement.
+  </caption>
+  <sidebyside widths="48% 48%" margins="2%" valign="middle">
+    <figure xml:id="fig-spring-displacement">
+      <caption>
+        The block, its displacement from equilibrium, and the potential energy
+        <m>U = \frac{1}{2}kx^2</m>.
+      </caption>
+      <image xml:id="image-spring-displacement" width="100%">
+        <shortdescription>
+          A block on a horizontal spring displaced from equilibrium, drawn above the parabola
+          giving its potential energy.
+        </shortdescription>
+        <description>
+          <p>
+            In the upper half of the picture a spring runs from a hatched wall on the left to a
+            block of mass <m>m</m> resting on a hatched floor. A dashed gray vertical line marks
+            the equilibrium position, labeled <m>x = 0</m>, and a second dashed vertical line
+            passes through the block, which has been pulled to the right; a double-headed arrow
+            between the two lines is labeled <m>x</m>.
+          </p>
+          <p>
+            In the lower half, on the same horizontal scale, the parabola
+            <m>U = \frac{1}{2}kx^2</m> is graphed in blue, with its vertex at the equilibrium
+            position. The vertical axis is labeled <m>U</m> and the horizontal axis is labeled
+            <m>x</m>. The dashed line through the block continues downward and meets the
+            parabola at a marked point, the potential energy stored in the spring at that
+            displacement. The parabola is symmetric, so stretching and compressing by the same
+            amount store the same energy.
+          </p>
+        </description>
+        <latex-image>
+<![CDATA[\begin{tikzpicture}[>={Latex}, line join=round, line cap=round]
+  % Okabe-Ito colorblind-safe palette
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oivermillion}{RGB}{213,94,0}
+  % ================= the physical spring =================
+  % ---- wall ----
+  \fill[black!8] (-0.45,0) rectangle (0,1.7);
+  \draw[black!70, line width=1pt] (0,0) -- (0,1.7);
+  \foreach \i in {0.35,0.65,...,1.7} {
+    \draw[black!40, line width=0.5pt] (0,\i) -- (-0.35,\i-0.28);
+  }
+  % ---- floor ----
+  \draw[black!70, line width=0.9pt] (-0.45,0) -- (5.3,0);
+  \foreach \i in {-0.15,0.25,...,5.25} {
+    \draw[black!40, line width=0.5pt] (\i,0) -- (\i-0.3,-0.3);
+  }
+  % ---- spring ----
+  \draw[oiblue, line width=1pt, decorate,
+        decoration={coil, aspect=0.55, segment length=3.2mm, amplitude=2.2mm}]
+    (0,0.5) -- (3.65,0.5);
+  % ---- block, displaced to the right of equilibrium ----
+  \fill[oivermillion!85] (3.65,0) rectangle (4.35,0.95);
+  \draw[black!65, line width=0.6pt] (3.65,0) rectangle (4.35,0.95);
+  \node[white, font=\small] at (4.0,0.48) {$m$};
+  % ---- equilibrium line and displaced line, shared by both pictures ----
+  \draw[black!55, dashed, line width=0.7pt] (3.0,1.55) -- (3.0,-2.35);
+  \node[black!65, font=\small, anchor=south] at (3.0,1.58) {$x = 0$};
+  \draw[black!55, dashed, line width=0.7pt] (4.0,1.25) -- (4.0,-1.6);
+  % ---- the displacement ----
+  \draw[<->, black!75, line width=0.7pt] (3.0,1.25) -- (4.0,1.25)
+    node[midway, fill=white, inner sep=1.5pt, font=\small] {$x$};
+  % ================= the potential energy graph =================
+  \draw[->, black!75, line width=0.7pt] (1.2,-2.2) -- (5.0,-2.2)
+    node[anchor=north east, font=\small] {$x$};
+  \draw[->, black!75, line width=0.7pt] (3.0,-2.35) -- (3.0,-0.75)
+    node[anchor=east, font=\small, inner sep=3pt] {$U$};
+  \draw[oiblue, line width=1.2pt]
+    plot[domain=1.4:4.6, samples=80] ({\x},{-2.2+0.6*(\x-3)*(\x-3)});
+  \node[oiblue, font=\small, anchor=west] at (4.68,-1.0) {$U = \frac{1}{2}kx^2$};
+  % ---- the block's own point on the parabola ----
+  \fill[oivermillion] (4.0,-1.6) circle (0.075);
+  \draw[black!55, dashed, line width=0.6pt] (3.0,-1.6) -- (4.0,-1.6);
+  \node[black!75, font=\small, anchor=east] at (2.92,-1.6) {$\frac{1}{2}kx^2$};
+\end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </figure>
+    <figure xml:id="fig-spring-force-gradient">
+      <caption>
+        The gradient and the force, orthogonal to the equipotential lines
+        <m>x = \text{constant}</m>.
+      </caption>
+      <image xml:id="image-spring-force-gradient" width="100%">
+        <shortdescription>
+          Vertical equipotential lines of the spring potential, with horizontal gradient arrows
+          pointing outward and force arrows pointing back toward equilibrium.
+        </shortdescription>
+        <description>
+          <p>
+            A pair of coordinate axes is drawn, with the equilibrium position of the spring at
+            the origin. Four dashed blue vertical lines at <m>x = \pm a</m> and
+            <m>x = \pm 2a</m> are the equipotential curves of <m>U = \frac{1}{2}kx^2</m>, the
+            outer pair carrying four times the energy of the inner pair.
+          </p>
+          <p>
+            At a point on each line a horizontal green arrow labeled <m>\nabla U</m> points away
+            from the origin and a horizontal vermillion arrow labeled
+            <m>\mathbf F = -\nabla U</m> points back toward it. The arrows on the outer lines
+            are twice as long as those on the inner lines, since <m>|\nabla U| = k|x|</m>. A
+            small square at each point marks the right angle between the horizontal arrows and
+            the vertical equipotential line.
+          </p>
+        </description>
+        <latex-image>
+<![CDATA[\begin{tikzpicture}[>={Latex}, line join=round, line cap=round, scale=1.15]
+  % Okabe-Ito colorblind-safe palette
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oivermillion}{RGB}{213,94,0}
+  \definecolor{oigreen}{RGB}{0,158,115}
+  % ---- axes, with the equilibrium position at the origin ----
+  \draw[->, black!75, line width=0.7pt] (-3.4,0) -- (3.5,0)
+    node[anchor=north east, font=\small] {$x$};
+  \draw[->, black!75, line width=0.7pt] (0,-1.9) -- (0,2.45)
+    node[anchor=south east, font=\small] {$y$};
+  % ---- equipotential curves: U = (1/2)k x^2 is constant on each vertical line ----
+  \draw[oiblue, dashed, line width=0.9pt] (1.1,-1.75) -- (1.1,1.85);
+  \draw[oiblue, dashed, line width=0.9pt] (-1.1,-1.75) -- (-1.1,1.85)
+    node[anchor=south, oiblue, font=\small] {$U = \frac{1}{2}ka^2$};
+  \draw[oiblue, dashed, line width=0.9pt] (-2.2,-1.75) -- (-2.2,1.85);
+  \draw[oiblue, dashed, line width=0.9pt] (2.2,-1.75) -- (2.2,1.85)
+    node[anchor=south, oiblue, font=\small] {$U = 2ka^2$};
+  \node[black!70, font=\small, anchor=north] at (1.1,-1.8) {$a$};
+  \node[black!70, font=\small, anchor=north] at (2.2,-1.8) {$2a$};
+  \node[black!70, font=\small, anchor=north] at (-1.1,-1.8) {$-a$};
+  \node[black!70, font=\small, anchor=north] at (-2.2,-1.8) {$-2a$};
+  % ---- x = a : gradient outward, force inward ----
+  \draw[->, oigreen, line width=1.3pt] (1.1,0.8) -- (1.6,0.8);
+  \draw[->, oivermillion, line width=1.3pt] (1.1,0.8) -- (0.6,0.8);
+  \draw[black!55, line width=0.6pt] (1.28,0.8) -- (1.28,0.62) -- (1.1,0.62);
+  % ---- x = 2a : twice as long, since |grad U| = k|x| ----
+  \draw[->, oigreen, line width=1.3pt] (2.2,-0.8) -- (3.2,-0.8)
+    node[anchor=west, oigreen, font=\small, inner sep=3pt] {$\nabla U$};
+  \draw[->, oivermillion, line width=1.3pt] (2.2,-0.8) -- (1.2,-0.8);
+  \node[oivermillion, font=\small, anchor=north] at (1.75,-1.0)
+    {$\mathbf F = -\nabla U$};
+  \draw[black!55, line width=0.6pt] (2.38,-0.8) -- (2.38,-0.98) -- (2.2,-0.98);
+  % ---- x = -a ----
+  \draw[->, oigreen, line width=1.3pt] (-1.1,-0.8) -- (-1.6,-0.8);
+  \draw[->, oivermillion, line width=1.3pt] (-1.1,-0.8) -- (-0.6,-0.8);
+  \draw[black!55, line width=0.6pt] (-1.28,-0.8) -- (-1.28,-0.98) -- (-1.1,-0.98);
+  % ---- x = -2a ----
+  \draw[->, oigreen, line width=1.3pt] (-2.2,0.8) -- (-3.2,0.8);
+  \draw[->, oivermillion, line width=1.3pt] (-2.2,0.8) -- (-1.2,0.8);
+  \draw[black!55, line width=0.6pt] (-2.38,0.8) -- (-2.38,0.62) -- (-2.2,0.62);
+  % ---- annotation ----
+  \node[anchor=north, draw=black!30, rounded corners=2pt, fill=white,
+        inner sep=4pt, font=\small, align=left] at (0,-2.35)
+    {$\nabla U = kx\,\hat{\mathbf i}$\\[2pt]
+     $\mathbf F = -\nabla U = -kx\,\hat{\mathbf i}$ \quad (Hooke's Law)};
+\end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </figure>
+  </sidebyside>
+</figure>
 
 
 </section>
