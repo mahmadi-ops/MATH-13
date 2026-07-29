@@ -1,0 +1,147 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-spring-force-gradient-figure" speech2="Vertical equipotential lines of the spring potential energy, with horizontal gradient arrows pointing away from equilibrium and force arrows pointing back toward it.">
+      <grouped>prefigure-spring-force-gradient-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-spring-force-gradient-sb-xaxis</active>
+        <active>prefigure-spring-force-gradient-sb-yaxis</active>
+        <active>prefigure-spring-force-gradient-sb-level-a</active>
+        <active>prefigure-spring-force-gradient-sb-level-ma</active>
+        <active>prefigure-spring-force-gradient-sb-level-2a</active>
+        <active>prefigure-spring-force-gradient-sb-level-m2a</active>
+        <active>prefigure-spring-force-gradient-sb-grad-a</active>
+        <active>prefigure-spring-force-gradient-sb-force-a</active>
+        <active>prefigure-spring-force-gradient-sb-right-angle-a</active>
+        <active>prefigure-spring-force-gradient-sb-grad-2a</active>
+        <active>prefigure-spring-force-gradient-sb-force-2a</active>
+        <active>prefigure-spring-force-gradient-sb-grad-ma</active>
+        <active>prefigure-spring-force-gradient-sb-force-ma</active>
+        <active>prefigure-spring-force-gradient-sb-grad-m2a</active>
+        <active>prefigure-spring-force-gradient-sb-force-m2a</active>
+      </children>
+      <components>
+        <active>prefigure-spring-force-gradient-sb-xaxis</active>
+        <active>prefigure-spring-force-gradient-sb-yaxis</active>
+        <active>prefigure-spring-force-gradient-sb-level-a</active>
+        <active>prefigure-spring-force-gradient-sb-level-ma</active>
+        <active>prefigure-spring-force-gradient-sb-level-2a</active>
+        <active>prefigure-spring-force-gradient-sb-level-m2a</active>
+        <active>prefigure-spring-force-gradient-sb-grad-a</active>
+        <active>prefigure-spring-force-gradient-sb-force-a</active>
+        <active>prefigure-spring-force-gradient-sb-right-angle-a</active>
+        <active>prefigure-spring-force-gradient-sb-grad-2a</active>
+        <active>prefigure-spring-force-gradient-sb-force-2a</active>
+        <active>prefigure-spring-force-gradient-sb-grad-ma</active>
+        <active>prefigure-spring-force-gradient-sb-force-ma</active>
+        <active>prefigure-spring-force-gradient-sb-grad-m2a</active>
+        <active>prefigure-spring-force-gradient-sb-force-m2a</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-xaxis" speech2="The horizontal x axis, with the equilibrium position of the spring at the origin.">
+      <active>prefigure-spring-force-gradient-sb-xaxis</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-yaxis" speech2="The vertical y axis.">
+      <active>prefigure-spring-force-gradient-sb-yaxis</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-level-a" speech2="The equipotential line x equals a, a dashed blue vertical line to the right of the origin, on which U equals one half k a squared.">
+      <active>prefigure-spring-force-gradient-sb-level-a</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-level-ma" speech2="The equipotential line x equals minus a, the mirror image on the left, carrying the same energy one half k a squared.">
+      <active>prefigure-spring-force-gradient-sb-level-ma</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-level-2a" speech2="The equipotential line x equals two a, twice as far from the origin, on which U equals two k a squared, four times as much energy.">
+      <active>prefigure-spring-force-gradient-sb-level-2a</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-level-m2a" speech2="The equipotential line x equals minus two a, the mirror image on the left.">
+      <active>prefigure-spring-force-gradient-sb-level-m2a</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-grad-a" speech2="The gradient at a point on the line x equals a, a short green arrow pointing to the right, away from equilibrium.">
+      <active>prefigure-spring-force-gradient-sb-grad-a</active>
+      <position>7</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-force-a" speech2="The spring force at that point, a short vermillion arrow of equal length pointing to the left, back toward equilibrium.">
+      <active>prefigure-spring-force-gradient-sb-force-a</active>
+      <position>8</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-right-angle-a" speech2="A small square marking the right angle where these horizontal arrows meet the vertical equipotential line.">
+      <active>prefigure-spring-force-gradient-sb-right-angle-a</active>
+      <position>9</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-grad-2a" speech2="The gradient at a point on the line x equals two a, a green arrow pointing away from equilibrium and twice as long, since its size is k times the distance from equilibrium.">
+      <active>prefigure-spring-force-gradient-sb-grad-2a</active>
+      <position>10</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-force-2a" speech2="The spring force there, an equally long vermillion arrow pointing back toward equilibrium.">
+      <active>prefigure-spring-force-gradient-sb-force-2a</active>
+      <position>11</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-grad-ma" speech2="The gradient on the line x equals minus a, a short green arrow pointing to the left, again away from equilibrium.">
+      <active>prefigure-spring-force-gradient-sb-grad-ma</active>
+      <position>12</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-force-ma" speech2="The force there, a short vermillion arrow pointing to the right, back toward equilibrium.">
+      <active>prefigure-spring-force-gradient-sb-force-ma</active>
+      <position>13</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-grad-m2a" speech2="The gradient on the line x equals minus two a, a long green arrow pointing to the left, away from equilibrium.">
+      <active>prefigure-spring-force-gradient-sb-grad-m2a</active>
+      <position>14</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-force-gradient-sb-force-m2a" speech2="The force there, a long vermillion arrow pointing to the right, back toward equilibrium.">
+      <active>prefigure-spring-force-gradient-sb-force-m2a</active>
+      <position>15</position>
+      <parents>
+        <grouped>prefigure-spring-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
