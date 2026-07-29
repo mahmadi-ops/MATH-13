@@ -104,6 +104,48 @@
   </ul>
   </p>
 
+<section xml:id="sec-Examples-from-Mechanics">
+  <title>Examples from Mechanics</title>
+  
+<p>
+  You may recall in your introductory physics course that the gravitational potential energy <m>U</m> of a mass <m>m</m> at height <m>y</m> is
+  <m>U = mgy</m>.  When the height remains constant, the potential energy is constant.  The surface of constant potential energy is
+  level surface - or an equipotential surface.
+
+  Using the potential and , the gravitational force is 
+  <md>
+    <mrow> {\mathbf F} \amp = -\nabla U </mrow>
+    <mrow> \amp = -\frac{d}{dy}(mgy) \hat{\mathbf j}</mrow>
+    <mrow> \amp = -mg{\hat{\mathbf j}} </mrow>
+  </md>
+  which points straight down.  Note that the force is perpendicular to the level surface of constant potential energy.
+</p>
+
+<p>
+Note: please place graphs of gravitational potential energy and gravitational force here.
+</p>
+
+<p>
+Using this same idea we can also look at the potential energy of a spring.  
+The potential energy of a spring is given by <m>U = \frac{1}{2}kx^2</m> where <m>k</m> is the spring constant and <m>x</m> is 
+the displacement from equilibrium.  The force exerted by the spring is given by
+
+<md>
+    <mrow> {\mathbf F} \amp = -\nabla U </mrow>
+    <mrow> \amp = -\frac{d}{dx}\left(\frac{1}{2}kx^2\right) \hat{\mathbf i}</mrow>
+    <mrow> \amp = -kx{\hat{\mathbf i}} </mrow>
+  </md>
+more commonly known as Hooke's Law.  Again, the force is perpendicular to the level surface of constant potential energy.
+</p>
+
+<p>
+Note: please place graphs of spring potential energy and spring force here.
+  </p>
+
+
+</section>
+
+
   <example xml:id="ex-two-runners">
     <title>Two Runners in a City Heat Island</title>
     <statement>
