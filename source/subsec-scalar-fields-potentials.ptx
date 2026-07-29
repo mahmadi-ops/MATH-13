@@ -136,69 +136,84 @@
     point on it carries the same potential energy.
     <em>Right:</em> at every point <m>\nabla U = mg\,\hat{\mathbf j}</m> points straight up,
     the direction in which <m>U</m> increases fastest, and the force
-    <m>\mathbf F = -\nabla U = -mg\,\hat{\mathbf j}</m> points straight down. Both are
-    perpendicular to the equipotential surfaces, as the right angles record.
+    <m>\mathbf F = -\nabla U = -mg\,\hat{\mathbf j}</m> points straight down. The field is
+    uniform, so the arrows are the same at every point, and both are perpendicular to the
+    equipotential surfaces, as the right angles record.
   </caption>
   <sidebyside widths="48% 48%" margins="2%" valign="middle">
     <figure xml:id="fig-gravity-height">
       <caption>The mass and its height above the surface of the earth.</caption>
       <image xml:id="image-gravity-height" width="100%">
-        <shortdescription>
-          A mass at height y above the ground, with three dashed horizontal lines of constant
-          gravitational potential energy.
-        </shortdescription>
-        <description>
-          <p>
-            The surface of the earth is drawn as a hatched horizontal line at the bottom, and a
-            vertical axis labeled <m>y</m> measures height above it. Three dashed blue horizontal
-            lines are drawn at heights <m>y_1</m>, <m>y_2</m>, and <m>y_3</m>, labeled
-            <m>U = mgy_1</m>, <m>U = mgy_2</m>, and <m>U = mgy_3</m>; these are the equipotential
-            surfaces, and higher lines carry larger potential energy. A small vermillion ball of
-            mass <m>m</m> rests on the middle line, and a double-headed arrow from the ground up
-            to the ball marks its height <m>y_2</m>. A box at the top records
-            <m>U = mgy</m>.
-          </p>
-        </description>
-        <latex-image>
-<![CDATA[\begin{tikzpicture}[>={Latex}, line join=round, line cap=round]
-  % Okabe-Ito colorblind-safe palette
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  % ---- surface of the earth ----
-  \fill[black!8] (-0.4,-0.45) rectangle (6.3,0);
-  \draw[black!70, line width=1pt] (-0.4,0) -- (6.3,0);
-  \foreach \i in {-0.1,0.3,...,6.3} {
-    \draw[black!40, line width=0.5pt] (\i,0) -- (\i-0.3,-0.32);
-  }
-  \node[black!70, font=\small, anchor=north] at (2.9,-0.5) {surface of the earth};
-  % ---- height axis ----
-  \draw[->, black!75, line width=0.7pt] (0.5,-0.05) -- (0.5,4.55)
-    node[anchor=south, font=\small] {$y$};
-  % ---- equipotential surfaces: U = mgy is constant on each ----
-  \draw[oiblue, dashed, line width=0.9pt] (0.15,1.2) -- (4.6,1.2)
-    node[anchor=west, oiblue, font=\small] {$U = mgy_1$};
-  \draw[oiblue, dashed, line width=0.9pt] (0.15,2.4) -- (4.6,2.4)
-    node[anchor=west, oiblue, font=\small] {$U = mgy_2$};
-  \draw[oiblue, dashed, line width=0.9pt] (0.15,3.6) -- (4.6,3.6)
-    node[anchor=west, oiblue, font=\small] {$U = mgy_3$};
-  % ---- ticks on the height axis ----
-  \draw[black!75, line width=0.7pt] (0.38,1.2) -- (0.62,1.2);
-  \node[black!75, font=\small, anchor=east] at (0.34,1.2) {$y_1$};
-  \draw[black!75, line width=0.7pt] (0.38,2.4) -- (0.62,2.4);
-  \node[black!75, font=\small, anchor=east] at (0.34,2.4) {$y_2$};
-  \draw[black!75, line width=0.7pt] (0.38,3.6) -- (0.62,3.6);
-  \node[black!75, font=\small, anchor=east] at (0.34,3.6) {$y_3$};
-  % ---- the object and its height ----
-  \draw[<->, black!75, line width=0.7pt] (2.9,0.03) -- (2.9,2.22)
-    node[pos=0.72, fill=white, inner sep=1.5pt, font=\small] {$y_2$};
-  \fill[oivermillion] (2.9,2.4) circle (0.17);
-  \draw[black!60, line width=0.5pt] (2.9,2.4) circle (0.17);
-  \node[anchor=south west, font=\small, inner sep=2pt] at (3.02,2.46) {$m$};
-  % ---- annotation ----
-  \node[anchor=north east, draw=black!30, rounded corners=2pt, fill=white,
-        inner sep=4pt, font=\small] at (6.3,5.4) {$U = mgy$};
-\end{tikzpicture}]]>
-        </latex-image>
+        <prefigure xmlns="https://prefigure.org" label="prefigure-gravity-height">
+        <diagram dimensions="(400,333)" margins="6">
+          <coordinates bbox="(-0.7,-1.15,7.4,5.6)">
+
+            <!-- the surface of the earth -->
+            <group at="ga-ground">
+              <rectangle lower-left="(-0.4,-0.45)" dimensions="(6.7,0.45)" fill="#EFEFEF" stroke="#EFEFEF"/>
+              <line p1="(-0.4,0)" p2="(6.3,0)" stroke="#4D4D4D" thickness="2"/>
+              <repeat parameter="k=0..18">
+                <line p1="(-0.1+0.35*k,0)" p2="(-0.4+0.35*k,-0.32)" stroke="#999999" thickness="1"/>
+              </repeat>
+            </group>
+            <label anchor="(2.9,-0.5)" alignment="s" color="#4D4D4D" scale="0.85">
+              <m>\text{surface of the earth}</m>
+            </label>
+
+            <!-- height axis -->
+            <line at="ga-axis" p1="(0.5,-0.05)" p2="(0.5,4.55)" stroke="#4D4D4D" thickness="2" arrows="1"/>
+            <label anchor="(0.5,4.55)" alignment="ne"><m>y</m></label>
+
+            <!-- equipotential surfaces -->
+            <line at="ga-level1" p1="(0.15,1.2)" p2="(4.6,1.2)" stroke="#0072B2" thickness="1.5" dash="5"/>
+            <line at="ga-level2" p1="(0.15,2.4)" p2="(4.6,2.4)" stroke="#0072B2" thickness="1.5" dash="5"/>
+            <line at="ga-level3" p1="(0.15,3.6)" p2="(4.6,3.6)" stroke="#0072B2" thickness="1.5" dash="5"/>
+            <label anchor="(4.7,1.2)" alignment="e" color="#0072B2"><m>U = mgy_1</m></label>
+            <label anchor="(4.7,2.4)" alignment="e" color="#0072B2"><m>U = mgy_2</m></label>
+            <label anchor="(4.7,3.6)" alignment="e" color="#0072B2"><m>U = mgy_3</m></label>
+
+            <!-- ticks -->
+            <group at="ga-ticks">
+              <line p1="(0.38,1.2)" p2="(0.62,1.2)" stroke="#4D4D4D" thickness="1.5"/>
+              <line p1="(0.38,2.4)" p2="(0.62,2.4)" stroke="#4D4D4D" thickness="1.5"/>
+              <line p1="(0.38,3.6)" p2="(0.62,3.6)" stroke="#4D4D4D" thickness="1.5"/>
+            </group>
+            <label anchor="(0.3,1.2)" alignment="w"><m>y_1</m></label>
+            <label anchor="(0.3,2.4)" alignment="w"><m>y_2</m></label>
+            <label anchor="(0.3,3.6)" alignment="w"><m>y_3</m></label>
+
+            <!-- the object and its height -->
+            <line at="ga-height" p1="(2.9,0.03)" p2="(2.9,2.2)" stroke="#4D4D4D" thickness="2" arrows="2"/>
+            <label anchor="(2.98,1.7)" alignment="e"><m>y_2</m></label>
+            <point at="ga-mass" p="(2.9,2.4)" size="7" fill="#D55E00"/>
+            <label anchor="(2.9,2.4)" alignment="ne" offset="(4,4)"><m>m</m></label>
+
+            <!-- annotations on the picture -->
+            <label anchor="(2.45,4.0)" alignment="n" color="#666666" scale="0.85">
+              <m>\text{same height} \Rightarrow \text{same } U</m>
+            </label>
+            <line p1="(3.2,3.98)" p2="(3.55,3.66)" stroke="#B3B3B3" thickness="1"/>
+            <label anchor="(3.3,0.72)" alignment="e" color="#666666" scale="0.85">
+              <m>\text{height above the surface}</m>
+            </label>
+            <line p1="(3.22,0.75)" p2="(2.96,0.92)" stroke="#B3B3B3" thickness="1"/>
+            <label anchor="(4.95,5.15)" alignment="e"><m>U = mgy</m></label>
+
+          </coordinates>
+
+          <annotations>
+            <annotation ref="figure" text="A mass at height y above the surface of the earth, with three dashed horizontal lines of constant gravitational potential energy.">
+              <annotation ref="ga-ground" text="The surface of the earth, a hatched horizontal line across the bottom of the figure."/>
+              <annotation ref="ga-axis" text="A vertical axis labelled y, measuring height above the surface."/>
+              <annotation ref="ga-level1" text="The equipotential surface at height y one, a dashed blue horizontal line labelled U equals m g y one. It is the lowest of the three, so it carries the least potential energy."/>
+              <annotation ref="ga-level2" text="The equipotential surface at height y two, a dashed blue horizontal line labelled U equals m g y two. The mass rests on this line."/>
+              <annotation ref="ga-level3" text="The equipotential surface at height y three, a dashed blue horizontal line labelled U equals m g y three, the highest of the three and the one carrying the most potential energy."/>
+              <annotation ref="ga-mass" text="The mass m, drawn as a small filled circle sitting on the middle equipotential surface."/>
+              <annotation ref="ga-height" text="A double headed arrow from the ground up to the mass, marking its height y two above the surface."/>
+            </annotation>
+          </annotations>
+        </diagram>
+        </prefigure>
       </image>
     </figure>
     <figure xml:id="fig-gravity-force-gradient">
@@ -206,87 +221,96 @@
         The gradient, the force, and the equipotential surfaces they cross at right angles.
       </caption>
       <image xml:id="image-gravity-force-gradient" width="100%">
-        <shortdescription>
-          Upward gradient arrows and downward force arrows meeting the horizontal equipotential
-          lines at right angles.
-        </shortdescription>
-        <description>
-          <p>
-            The same hatched ground and the same three dashed blue horizontal equipotential lines
-            appear again. At three points, one on each line, a green arrow points straight up,
-            labeled <m>\nabla U</m>, and a vermillion arrow of the same length points straight
-            down, labeled <m>\mathbf F = -\nabla U</m>. The arrows are identical at every point,
-            because the field is uniform. A small square at each point marks the right angle
-            between the arrows and the equipotential line, so the force and the gradient cross
-            the level surfaces perpendicularly. A box at the top records
-            <m>\nabla U = mg\,\hat{\mathbf j}</m> and
-            <m>\mathbf F = -\nabla U = -mg\,\hat{\mathbf j}</m>.
-          </p>
-        </description>
-        <latex-image>
-<![CDATA[\begin{tikzpicture}[>={Latex}, line join=round, line cap=round]
-  % Okabe-Ito colorblind-safe palette
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  % ---- surface of the earth ----
-  \fill[black!8] (-0.4,-0.45) rectangle (6.3,0);
-  \draw[black!70, line width=1pt] (-0.4,0) -- (6.3,0);
-  \foreach \i in {-0.1,0.3,...,6.3} {
-    \draw[black!40, line width=0.5pt] (\i,0) -- (\i-0.3,-0.32);
-  }
-  \node[black!70, font=\small, anchor=north] at (2.9,-0.5) {surface of the earth};
-  % ---- height axis ----
-  \draw[->, black!75, line width=0.7pt] (0.5,-0.05) -- (0.5,4.55)
-    node[anchor=south, font=\small] {$y$};
-  % ---- the same equipotential surfaces ----
-  \draw[oiblue, dashed, line width=0.9pt] (0.15,1.2) -- (4.6,1.2)
-    node[anchor=west, oiblue, font=\small] {$U = mgy_1$};
-  \draw[oiblue, dashed, line width=0.9pt] (0.15,2.4) -- (4.6,2.4)
-    node[anchor=west, oiblue, font=\small] {$U = mgy_2$};
-  \draw[oiblue, dashed, line width=0.9pt] (0.15,3.6) -- (4.6,3.6)
-    node[anchor=west, oiblue, font=\small] {$U = mgy_3$};
-  % ---- gradient (up) and force (down) at three sample points ----
-  % lowest level curve
-  \draw[->, oigreen, line width=1.3pt] (1.4,1.2) -- (1.4,1.85);
-  \draw[->, oivermillion, line width=1.3pt] (1.4,1.2) -- (1.4,0.55);
-  \draw[black!55, line width=0.6pt] (1.4,0.98) -- (1.62,0.98) -- (1.62,1.2);
-  % middle level curve, where the mass sits
-  \fill[black!25] (2.9,2.4) circle (0.15);
-  \draw[black!45, line width=0.5pt] (2.9,2.4) circle (0.15);
-  \draw[->, oigreen, line width=1.3pt] (2.9,2.4) -- (2.9,3.05)
-    node[anchor=west, oigreen, font=\small, inner sep=2pt] {$\nabla U$};
-  \draw[->, oivermillion, line width=1.3pt] (2.9,2.4) -- (2.9,1.75)
-    node[anchor=west, oivermillion, font=\small, inner sep=2pt] {$\mathbf F = -\nabla U$};
-  \draw[black!55, line width=0.6pt] (2.9,2.18) -- (3.12,2.18) -- (3.12,2.4);
-  % highest level curve
-  \draw[->, oigreen, line width=1.3pt] (4.1,3.6) -- (4.1,4.25);
-  \draw[->, oivermillion, line width=1.3pt] (4.1,3.6) -- (4.1,2.95);
-  \draw[black!55, line width=0.6pt] (4.1,3.38) -- (4.32,3.38) -- (4.32,3.6);
-  % ---- annotation ----
-  \node[anchor=north east, draw=black!30, rounded corners=2pt, fill=white,
-        inner sep=4pt, font=\small, align=left] at (6.3,5.4)
-    {$\nabla U = mg\,\hat{\mathbf j}$\\[2pt]
-     $\mathbf F = -\nabla U = -mg\,\hat{\mathbf j}$};
-\end{tikzpicture}]]>
-        </latex-image>
+        <prefigure xmlns="https://prefigure.org" label="prefigure-gravity-force-gradient">
+        <diagram dimensions="(400,333)" margins="6">
+          <coordinates bbox="(-0.7,-1.15,7.4,5.6)">
+
+            <!-- the surface of the earth -->
+            <group at="gb-ground">
+              <rectangle lower-left="(-0.4,-0.45)" dimensions="(6.7,0.45)" fill="#EFEFEF" stroke="#EFEFEF"/>
+              <line p1="(-0.4,0)" p2="(6.3,0)" stroke="#4D4D4D" thickness="2"/>
+              <repeat parameter="k=0..18">
+                <line p1="(-0.1+0.35*k,0)" p2="(-0.4+0.35*k,-0.32)" stroke="#999999" thickness="1"/>
+              </repeat>
+            </group>
+            <label anchor="(2.9,-0.5)" alignment="s" color="#4D4D4D" scale="0.85">
+              <m>\text{surface of the earth}</m>
+            </label>
+
+            <!-- height axis -->
+            <line at="gb-axis" p1="(0.5,-0.05)" p2="(0.5,4.55)" stroke="#4D4D4D" thickness="2" arrows="1"/>
+            <label anchor="(0.5,4.55)" alignment="ne"><m>y</m></label>
+
+            <!-- the same equipotential surfaces -->
+            <line at="gb-level1" p1="(0.15,1.2)" p2="(4.6,1.2)" stroke="#0072B2" thickness="1.5" dash="5"/>
+            <line at="gb-level2" p1="(0.15,2.4)" p2="(4.6,2.4)" stroke="#0072B2" thickness="1.5" dash="5"/>
+            <line at="gb-level3" p1="(0.15,3.6)" p2="(4.6,3.6)" stroke="#0072B2" thickness="1.5" dash="5"/>
+            <label anchor="(4.7,1.2)" alignment="e" color="#0072B2"><m>U = mgy_1</m></label>
+            <label anchor="(4.7,2.4)" alignment="e" color="#0072B2"><m>U = mgy_2</m></label>
+            <label anchor="(4.7,3.6)" alignment="e" color="#0072B2"><m>U = mgy_3</m></label>
+
+            <!-- gradient and force on the lowest surface -->
+            <vector at="gb-grad1" v="(0,0.65)" tail="(1.4,1.2)" stroke="#009E73" thickness="3"/>
+            <vector at="gb-force1" v="(0,-0.65)" tail="(1.4,1.2)" stroke="#D55E00" thickness="3"/>
+            <group at="gb-right-angle1">
+              <line p1="(1.4,0.98)" p2="(1.62,0.98)" stroke="#666666" thickness="1"/>
+              <line p1="(1.62,0.98)" p2="(1.62,1.2)" stroke="#666666" thickness="1"/>
+            </group>
+
+            <!-- gradient and force where the mass sits -->
+            <point at="gb-mass" p="(2.9,2.4)" size="6" fill="#BFBFBF"/>
+            <vector at="gb-grad2" v="(0,0.65)" tail="(2.9,2.4)" stroke="#009E73" thickness="3"/>
+            <vector at="gb-force2" v="(0,-0.65)" tail="(2.9,2.4)" stroke="#D55E00" thickness="3"/>
+            <group at="gb-right-angle2">
+              <line p1="(2.9,2.18)" p2="(3.12,2.18)" stroke="#666666" thickness="1"/>
+              <line p1="(3.12,2.18)" p2="(3.12,2.4)" stroke="#666666" thickness="1"/>
+            </group>
+            <label anchor="(2.98,3.05)" alignment="e" color="#009E73"><m>\nabla U</m></label>
+            <label anchor="(2.98,1.75)" alignment="e" color="#D55E00"><m>\mathbf F = -\nabla U</m></label>
+
+            <!-- gradient and force on the highest surface -->
+            <vector at="gb-grad3" v="(0,0.65)" tail="(4.1,3.6)" stroke="#009E73" thickness="3"/>
+            <vector at="gb-force3" v="(0,-0.65)" tail="(4.1,3.6)" stroke="#D55E00" thickness="3"/>
+            <group at="gb-right-angle3">
+              <line p1="(4.1,3.38)" p2="(4.32,3.38)" stroke="#666666" thickness="1"/>
+              <line p1="(4.32,3.38)" p2="(4.32,3.6)" stroke="#666666" thickness="1"/>
+            </group>
+
+            <!-- annotations on the picture -->
+            <label anchor="(0.6,4.15)" alignment="e" color="#666666" scale="0.85">
+              <m>\text{the same arrows everywhere}</m>
+            </label>
+            <label anchor="(2.2,0.68)" alignment="e" color="#666666" scale="0.85">
+              <m>\text{meets every level surface at } 90^\circ</m>
+            </label>
+            <line p1="(2.12,0.72)" p2="(1.74,0.95)" stroke="#B3B3B3" thickness="1"/>
+            <label anchor="(4.95,5.3)" alignment="e" color="#009E73"><m>\nabla U = mg\,\hat{\mathbf j}</m></label>
+            <label anchor="(4.95,4.6)" alignment="e" color="#D55E00"><m>\mathbf F = -mg\,\hat{\mathbf j}</m></label>
+
+          </coordinates>
+
+          <annotations>
+            <annotation ref="figure" text="Upward gradient arrows and downward force arrows meeting the horizontal equipotential surfaces at right angles.">
+              <annotation ref="gb-ground" text="The surface of the earth, a hatched horizontal line across the bottom of the figure."/>
+              <annotation ref="gb-axis" text="A vertical axis labelled y, measuring height above the surface."/>
+              <annotation ref="gb-level1" text="The lowest equipotential surface, a dashed blue horizontal line labelled U equals m g y one."/>
+              <annotation ref="gb-level2" text="The middle equipotential surface, a dashed blue horizontal line labelled U equals m g y two, the one the mass sits on."/>
+              <annotation ref="gb-level3" text="The highest equipotential surface, a dashed blue horizontal line labelled U equals m g y three."/>
+              <annotation ref="gb-grad2" text="The gradient of U at the mass, a green arrow of length m g pointing straight up, in the direction in which the potential energy increases fastest."/>
+              <annotation ref="gb-force2" text="The gravitational force at the mass, a vermillion arrow of the same length pointing straight down, opposite the gradient, in the direction in which the potential energy decreases fastest."/>
+              <annotation ref="gb-right-angle2" text="A small square marking the right angle between these arrows and the equipotential surface through the mass."/>
+              <annotation ref="gb-grad1" text="The gradient at a second point, on the lowest surface: an identical green arrow pointing straight up, since the field is uniform."/>
+              <annotation ref="gb-force1" text="The force at that second point, an identical vermillion arrow pointing straight down."/>
+              <annotation ref="gb-grad3" text="The gradient at a third point, on the highest surface: again the same green arrow pointing straight up."/>
+              <annotation ref="gb-force3" text="The force at that third point, again the same vermillion arrow pointing straight down."/>
+            </annotation>
+          </annotations>
+        </diagram>
+        </prefigure>
       </image>
     </figure>
   </sidebyside>
 </figure>
-
-<p>
-Using this same idea we can also look at the potential energy of a spring.  
-The potential energy of a spring is given by <m>U = \frac{1}{2}kx^2</m> where <m>k</m> is the spring constant and <m>x</m> is 
-the displacement from equilibrium.  The force exerted by the spring is given by
-
-<md>
-    <mrow> {\mathbf F} \amp = -\nabla U </mrow>
-    <mrow> \amp = -\frac{d}{dx}\left(\frac{1}{2}kx^2\right) \hat{\mathbf i}</mrow>
-    <mrow> \amp = -kx{\hat{\mathbf i}} </mrow>
-  </md>
-more commonly known as Hooke's Law.  Again, the force is perpendicular to the level surface of constant potential energy.
-</p>
 
 <p>
   <xref ref="fig-spring-potential-gradient"/> tells the same story for the spring. Here the
@@ -306,7 +330,7 @@ more commonly known as Hooke's Law.  Again, the force is perpendicular to the le
     <m>\nabla U = kx\,\hat{\mathbf i}</m> points away from equilibrium, the force
     <m>\mathbf F = -kx\,\hat{\mathbf i}</m> points back toward it, and both cross the
     equipotential lines at right angles. The arrows are twice as long on the outer lines
-    because <m>|\nabla U| = k|x|</m> grows with the displacement.
+    because <m>|\nabla U| = k|x|</m>.
   </caption>
   <sidebyside widths="48% 48%" margins="2%" valign="middle">
     <figure xml:id="fig-spring-displacement">
@@ -315,74 +339,89 @@ more commonly known as Hooke's Law.  Again, the force is perpendicular to the le
         <m>U = \frac{1}{2}kx^2</m>.
       </caption>
       <image xml:id="image-spring-displacement" width="100%">
-        <shortdescription>
-          A block on a horizontal spring displaced from equilibrium, drawn above the parabola
-          giving its potential energy.
-        </shortdescription>
-        <description>
-          <p>
-            In the upper half of the picture a spring runs from a hatched wall on the left to a
-            block of mass <m>m</m> resting on a hatched floor. A dashed gray vertical line marks
-            the equilibrium position, labeled <m>x = 0</m>, and a second dashed vertical line
-            passes through the block, which has been pulled to the right; a double-headed arrow
-            between the two lines is labeled <m>x</m>.
-          </p>
-          <p>
-            In the lower half, on the same horizontal scale, the parabola
-            <m>U = \frac{1}{2}kx^2</m> is graphed in blue, with its vertex at the equilibrium
-            position. The vertical axis is labeled <m>U</m> and the horizontal axis is labeled
-            <m>x</m>. The dashed line through the block continues downward and meets the
-            parabola at a marked point, the potential energy stored in the spring at that
-            displacement. The parabola is symmetric, so stretching and compressing by the same
-            amount store the same energy.
-          </p>
-        </description>
-        <latex-image>
-<![CDATA[\begin{tikzpicture}[>={Latex}, line join=round, line cap=round]
-  % Okabe-Ito colorblind-safe palette
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  % ================= the physical spring =================
-  % ---- wall ----
-  \fill[black!8] (-0.45,0) rectangle (0,1.7);
-  \draw[black!70, line width=1pt] (0,0) -- (0,1.7);
-  \foreach \i in {0.35,0.65,...,1.7} {
-    \draw[black!40, line width=0.5pt] (0,\i) -- (-0.35,\i-0.28);
-  }
-  % ---- floor ----
-  \draw[black!70, line width=0.9pt] (-0.45,0) -- (5.3,0);
-  \foreach \i in {-0.15,0.25,...,5.25} {
-    \draw[black!40, line width=0.5pt] (\i,0) -- (\i-0.3,-0.3);
-  }
-  % ---- spring ----
-  \draw[oiblue, line width=1pt, decorate,
-        decoration={coil, aspect=0.55, segment length=3.2mm, amplitude=2.2mm}]
-    (0,0.5) -- (3.65,0.5);
-  % ---- block, displaced to the right of equilibrium ----
-  \fill[oivermillion!85] (3.65,0) rectangle (4.35,0.95);
-  \draw[black!65, line width=0.6pt] (3.65,0) rectangle (4.35,0.95);
-  \node[white, font=\small] at (4.0,0.48) {$m$};
-  % ---- equilibrium line and displaced line, shared by both pictures ----
-  \draw[black!55, dashed, line width=0.7pt] (3.0,1.55) -- (3.0,-2.35);
-  \node[black!65, font=\small, anchor=south] at (3.0,1.58) {$x = 0$};
-  \draw[black!55, dashed, line width=0.7pt] (4.0,1.25) -- (4.0,-1.6);
-  % ---- the displacement ----
-  \draw[<->, black!75, line width=0.7pt] (3.0,1.25) -- (4.0,1.25)
-    node[midway, fill=white, inner sep=1.5pt, font=\small] {$x$};
-  % ================= the potential energy graph =================
-  \draw[->, black!75, line width=0.7pt] (1.2,-2.2) -- (5.0,-2.2)
-    node[anchor=north east, font=\small] {$x$};
-  \draw[->, black!75, line width=0.7pt] (3.0,-2.35) -- (3.0,-0.75)
-    node[anchor=east, font=\small, inner sep=3pt] {$U$};
-  \draw[oiblue, line width=1.2pt]
-    plot[domain=1.4:4.6, samples=80] ({\x},{-2.2+0.6*(\x-3)*(\x-3)});
-  \node[oiblue, font=\small, anchor=west] at (4.68,-1.0) {$U = \frac{1}{2}kx^2$};
-  % ---- the block's own point on the parabola ----
-  \fill[oivermillion] (4.0,-1.6) circle (0.075);
-  \draw[black!55, dashed, line width=0.6pt] (3.0,-1.6) -- (4.0,-1.6);
-  \node[black!75, font=\small, anchor=east] at (2.92,-1.6) {$\frac{1}{2}kx^2$};
-\end{tikzpicture}]]>
-        </latex-image>
+        <prefigure xmlns="https://prefigure.org" label="prefigure-spring-displacement">
+        <diagram dimensions="(400,285)" margins="6">
+          <definition>U(x) = -2.2 + 0.6*(x-3)^2</definition>
+          <coordinates bbox="(-0.75,-3.05,6.55,2.15)">
+
+            <!-- wall -->
+            <group at="sa-wall">
+              <rectangle lower-left="(-0.45,0)" dimensions="(0.45,1.7)" fill="#EFEFEF" stroke="#EFEFEF"/>
+              <line p1="(0,0)" p2="(0,1.7)" stroke="#4D4D4D" thickness="2"/>
+              <repeat parameter="k=0..4">
+                <line p1="(0,0.35+0.3*k)" p2="(-0.35,0.07+0.3*k)" stroke="#999999" thickness="1"/>
+              </repeat>
+            </group>
+
+            <!-- floor -->
+            <group at="sa-floor">
+              <line p1="(-0.45,0)" p2="(5.3,0)" stroke="#4D4D4D" thickness="2"/>
+              <repeat parameter="k=0..14">
+                <line p1="(-0.15+0.4*k,0)" p2="(-0.45+0.4*k,-0.3)" stroke="#999999" thickness="1"/>
+              </repeat>
+            </group>
+
+            <!-- the spring -->
+            <definition>coil(t) = (t, 0.5 + 0.19*sin(19*t))</definition>
+            <parametric-curve at="sa-spring" function="coil" domain="(0,3.65)" N="500"
+                              stroke="#0072B2" thickness="2"/>
+
+            <!-- the block, displaced to the right of equilibrium -->
+            <rectangle at="sa-block" lower-left="(3.65,0)" dimensions="(0.7,0.95)"
+                       fill="#D55E00" stroke="#4D4D4D" thickness="1"/>
+            <label anchor="(4.55,0.48)" alignment="e"><m>m</m></label>
+
+            <!-- equilibrium and displaced positions, shared by both pictures -->
+            <line at="sa-equilibrium" p1="(3,1.5)" p2="(3,-2.35)" stroke="#808080" thickness="1.5" dash="5"/>
+            <line p1="(4,1.2)" p2="(4,-1.6)" stroke="#808080" thickness="1.5" dash="5"/>
+            <label anchor="(3,1.55)" alignment="n" color="#666666" scale="0.85">
+              <m>\text{equilibrium } (x=0)</m>
+            </label>
+
+            <!-- the displacement -->
+            <line at="sa-displacement" p1="(3,1.2)" p2="(4,1.2)" stroke="#4D4D4D" thickness="2" arrows="2"/>
+            <label anchor="(3.5,1.22)" alignment="n"><m>x</m></label>
+
+            <!-- the potential energy graph, on the same horizontal scale -->
+            <line at="sa-xaxis" p1="(1.2,-2.2)" p2="(5.1,-2.2)" stroke="#4D4D4D" thickness="2" arrows="1"/>
+            <label anchor="(5.1,-2.2)" alignment="ne"><m>x</m></label>
+            <line at="sa-Uaxis" p1="(3,-2.35)" p2="(3,-0.7)" stroke="#4D4D4D" thickness="2" arrows="1"/>
+            <label anchor="(2.94,-0.72)" alignment="w"><m>U</m></label>
+            <graph at="sa-parabola" function="U" domain="(1.4,4.6)" stroke="#0072B2" thickness="2"/>
+            <label anchor="(4.72,-0.95)" alignment="e" color="#0072B2"><m>U = \frac{1}{2}kx^2</m></label>
+
+            <!-- the block's own point on the parabola -->
+            <point at="sa-energy" p="(4,-1.6)" size="5" fill="#D55E00"/>
+            <line p1="(3,-1.6)" p2="(4,-1.6)" stroke="#808080" thickness="1.5" dash="5"/>
+            <label anchor="(2.94,-1.6)" alignment="w"><m>\frac{1}{2}kx^2</m></label>
+            <label anchor="(3.12,-2.62)" alignment="e" color="#666666" scale="0.85">
+              <m>\nabla U = 0 \text{ at equilibrium}</m>
+            </label>
+
+            <!-- annotation on the picture -->
+            <label anchor="(1.45,1.05)" alignment="n" color="#666666" scale="0.85">
+              <m>\text{spring stretched}</m>
+            </label>
+            <line p1="(1.7,1.02)" p2="(1.95,0.74)" stroke="#B3B3B3" thickness="1"/>
+
+          </coordinates>
+
+          <annotations>
+            <annotation ref="figure" text="A block on a horizontal spring displaced from equilibrium, drawn above the parabola giving its potential energy.">
+              <annotation ref="sa-wall" text="A hatched wall at the left, holding the fixed end of the spring."/>
+              <annotation ref="sa-floor" text="A hatched horizontal floor the block slides along."/>
+              <annotation ref="sa-spring" text="The spring, drawn as a blue coil running from the wall to the block."/>
+              <annotation ref="sa-block" text="The block of mass m, pulled to the right of its equilibrium position so that the spring is stretched."/>
+              <annotation ref="sa-equilibrium" text="A dashed vertical line marking the equilibrium position, where x equals zero. It runs the full height of the figure, linking the block picture above to the energy graph below."/>
+              <annotation ref="sa-displacement" text="A double headed arrow between the equilibrium line and the block, marking the displacement x."/>
+              <annotation ref="sa-xaxis" text="The horizontal axis of the energy graph, labelled x, on the same scale as the picture above it."/>
+              <annotation ref="sa-Uaxis" text="The vertical axis of the energy graph, labelled U, rising from the equilibrium position."/>
+              <annotation ref="sa-parabola" text="The graph of the potential energy U equals one half k x squared, an upward opening parabola with its vertex at the equilibrium position. It is symmetric, so stretching and compressing by the same amount store the same energy."/>
+              <annotation ref="sa-energy" text="The point on the parabola directly below the block, giving the energy one half k x squared stored in the spring at that displacement."/>
+            </annotation>
+          </annotations>
+        </diagram>
+        </prefigure>
       </image>
     </figure>
     <figure xml:id="fig-spring-force-gradient">
@@ -391,79 +430,98 @@ more commonly known as Hooke's Law.  Again, the force is perpendicular to the le
         <m>x = \text{constant}</m>.
       </caption>
       <image xml:id="image-spring-force-gradient" width="100%">
-        <shortdescription>
-          Vertical equipotential lines of the spring potential, with horizontal gradient arrows
-          pointing outward and force arrows pointing back toward equilibrium.
-        </shortdescription>
-        <description>
-          <p>
-            A pair of coordinate axes is drawn, with the equilibrium position of the spring at
-            the origin. Four dashed blue vertical lines at <m>x = \pm a</m> and
-            <m>x = \pm 2a</m> are the equipotential curves of <m>U = \frac{1}{2}kx^2</m>, the
-            outer pair carrying four times the energy of the inner pair.
-          </p>
-          <p>
-            At a point on each line a horizontal green arrow labeled <m>\nabla U</m> points away
-            from the origin and a horizontal vermillion arrow labeled
-            <m>\mathbf F = -\nabla U</m> points back toward it. The arrows on the outer lines
-            are twice as long as those on the inner lines, since <m>|\nabla U| = k|x|</m>. A
-            small square at each point marks the right angle between the horizontal arrows and
-            the vertical equipotential line.
-          </p>
-        </description>
-        <latex-image>
-<![CDATA[\begin{tikzpicture}[>={Latex}, line join=round, line cap=round, scale=1.15]
-  % Okabe-Ito colorblind-safe palette
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  % ---- axes, with the equilibrium position at the origin ----
-  \draw[->, black!75, line width=0.7pt] (-3.4,0) -- (3.5,0)
-    node[anchor=north east, font=\small] {$x$};
-  \draw[->, black!75, line width=0.7pt] (0,-1.9) -- (0,2.45)
-    node[anchor=south east, font=\small] {$y$};
-  % ---- equipotential curves: U = (1/2)k x^2 is constant on each vertical line ----
-  \draw[oiblue, dashed, line width=0.9pt] (1.1,-1.75) -- (1.1,1.85);
-  \draw[oiblue, dashed, line width=0.9pt] (-1.1,-1.75) -- (-1.1,1.85)
-    node[anchor=south, oiblue, font=\small] {$U = \frac{1}{2}ka^2$};
-  \draw[oiblue, dashed, line width=0.9pt] (-2.2,-1.75) -- (-2.2,1.85);
-  \draw[oiblue, dashed, line width=0.9pt] (2.2,-1.75) -- (2.2,1.85)
-    node[anchor=south, oiblue, font=\small] {$U = 2ka^2$};
-  \node[black!70, font=\small, anchor=north] at (1.1,-1.8) {$a$};
-  \node[black!70, font=\small, anchor=north] at (2.2,-1.8) {$2a$};
-  \node[black!70, font=\small, anchor=north] at (-1.1,-1.8) {$-a$};
-  \node[black!70, font=\small, anchor=north] at (-2.2,-1.8) {$-2a$};
-  % ---- x = a : gradient outward, force inward ----
-  \draw[->, oigreen, line width=1.3pt] (1.1,0.8) -- (1.6,0.8);
-  \draw[->, oivermillion, line width=1.3pt] (1.1,0.8) -- (0.6,0.8);
-  \draw[black!55, line width=0.6pt] (1.28,0.8) -- (1.28,0.62) -- (1.1,0.62);
-  % ---- x = 2a : twice as long, since |grad U| = k|x| ----
-  \draw[->, oigreen, line width=1.3pt] (2.2,-0.8) -- (3.2,-0.8)
-    node[anchor=west, oigreen, font=\small, inner sep=3pt] {$\nabla U$};
-  \draw[->, oivermillion, line width=1.3pt] (2.2,-0.8) -- (1.2,-0.8);
-  \node[oivermillion, font=\small, anchor=north, fill=white, inner sep=2pt] at (1.7,-1.02)
-    {$\mathbf F = -\nabla U$};
-  \draw[black!55, line width=0.6pt] (2.38,-0.8) -- (2.38,-0.98) -- (2.2,-0.98);
-  % ---- x = -a ----
-  \draw[->, oigreen, line width=1.3pt] (-1.1,-0.8) -- (-1.6,-0.8);
-  \draw[->, oivermillion, line width=1.3pt] (-1.1,-0.8) -- (-0.6,-0.8);
-  \draw[black!55, line width=0.6pt] (-1.28,-0.8) -- (-1.28,-0.98) -- (-1.1,-0.98);
-  % ---- x = -2a ----
-  \draw[->, oigreen, line width=1.3pt] (-2.2,0.8) -- (-3.2,0.8);
-  \draw[->, oivermillion, line width=1.3pt] (-2.2,0.8) -- (-1.2,0.8);
-  \draw[black!55, line width=0.6pt] (-2.38,0.8) -- (-2.38,0.62) -- (-2.2,0.62);
-  % ---- annotation ----
-  \node[anchor=north, draw=black!30, rounded corners=2pt, fill=white,
-        inner sep=4pt, font=\small, align=left] at (0,-2.35)
-    {$\nabla U = kx\,\hat{\mathbf i}$\\[2pt]
-     $\mathbf F = -\nabla U = -kx\,\hat{\mathbf i}$ \quad (Hooke's Law)};
-\end{tikzpicture}]]>
-        </latex-image>
+        <prefigure xmlns="https://prefigure.org" label="prefigure-spring-force-gradient">
+        <diagram dimensions="(400,292)" margins="6">
+          <coordinates bbox="(-4.3,-3.35,4.9,3.35)">
+
+            <!-- axes, with the equilibrium position at the origin -->
+            <line at="sb-xaxis" p1="(-3.5,0)" p2="(3.6,0)" stroke="#4D4D4D" thickness="2" arrows="1"/>
+            <label anchor="(3.6,0)" alignment="se"><m>x</m></label>
+            <line at="sb-yaxis" p1="(0,-2)" p2="(0,2.3)" stroke="#4D4D4D" thickness="2" arrows="1"/>
+            <label anchor="(0,2.3)" alignment="nw"><m>y</m></label>
+
+            <!-- equipotential curves: U is constant on each vertical line -->
+            <line at="sb-level-a" p1="(1.1,-1.75)" p2="(1.1,1.8)" stroke="#0072B2" thickness="1.5" dash="5"/>
+            <line at="sb-level-ma" p1="(-1.1,-1.75)" p2="(-1.1,1.8)" stroke="#0072B2" thickness="1.5" dash="5"/>
+            <line at="sb-level-2a" p1="(2.2,-1.75)" p2="(2.2,1.8)" stroke="#0072B2" thickness="1.5" dash="5"/>
+            <line at="sb-level-m2a" p1="(-2.2,-1.75)" p2="(-2.2,1.8)" stroke="#0072B2" thickness="1.5" dash="5"/>
+            <label anchor="(-1.1,1.85)" alignment="n" color="#0072B2"><m>U = \frac{1}{2}ka^2</m></label>
+            <label anchor="(2.2,1.85)" alignment="n" color="#0072B2"><m>U = 2ka^2</m></label>
+            <label anchor="(1.1,-1.8)" alignment="s"><m>a</m></label>
+            <label anchor="(2.2,-1.8)" alignment="s"><m>2a</m></label>
+            <label anchor="(-1.1,-1.8)" alignment="s"><m>-a</m></label>
+            <label anchor="(-2.2,-1.8)" alignment="s"><m>-2a</m></label>
+
+            <!-- at x = a : gradient outward, force inward -->
+            <vector at="sb-grad-a" v="(0.5,0)" tail="(1.1,0.8)" stroke="#009E73" thickness="3"/>
+            <vector at="sb-force-a" v="(-0.5,0)" tail="(1.1,0.8)" stroke="#D55E00" thickness="3"/>
+            <group at="sb-right-angle-a">
+              <line p1="(1.28,0.8)" p2="(1.28,0.62)" stroke="#666666" thickness="1"/>
+              <line p1="(1.28,0.62)" p2="(1.1,0.62)" stroke="#666666" thickness="1"/>
+            </group>
+
+            <!-- at x = 2a : twice as long, since the gradient has size k times the absolute value of x -->
+            <vector at="sb-grad-2a" v="(1,0)" tail="(2.2,-0.8)" stroke="#009E73" thickness="3"/>
+            <vector at="sb-force-2a" v="(-1,0)" tail="(2.2,-0.8)" stroke="#D55E00" thickness="3"/>
+            <group at="sb-right-angle-2a">
+              <line p1="(2.38,-0.8)" p2="(2.38,-0.98)" stroke="#666666" thickness="1"/>
+              <line p1="(2.38,-0.98)" p2="(2.2,-0.98)" stroke="#666666" thickness="1"/>
+            </group>
+            <label anchor="(3.25,-0.8)" alignment="e" color="#009E73"><m>\nabla U</m></label>
+
+            <!-- at x = -a -->
+            <vector at="sb-grad-ma" v="(-0.5,0)" tail="(-1.1,-0.8)" stroke="#009E73" thickness="3"/>
+            <vector at="sb-force-ma" v="(0.5,0)" tail="(-1.1,-0.8)" stroke="#D55E00" thickness="3"/>
+            <group at="sb-right-angle-ma">
+              <line p1="(-1.28,-0.8)" p2="(-1.28,-0.98)" stroke="#666666" thickness="1"/>
+              <line p1="(-1.28,-0.98)" p2="(-1.1,-0.98)" stroke="#666666" thickness="1"/>
+            </group>
+
+            <!-- at x = -2a -->
+            <vector at="sb-grad-m2a" v="(-1,0)" tail="(-2.2,0.8)" stroke="#009E73" thickness="3"/>
+            <vector at="sb-force-m2a" v="(1,0)" tail="(-2.2,0.8)" stroke="#D55E00" thickness="3"/>
+            <group at="sb-right-angle-m2a">
+              <line p1="(-2.38,0.8)" p2="(-2.38,0.62)" stroke="#666666" thickness="1"/>
+              <line p1="(-2.38,0.62)" p2="(-2.2,0.62)" stroke="#666666" thickness="1"/>
+            </group>
+
+            <!-- annotations on the picture -->
+            <label anchor="(0,-2.3)" alignment="s" color="#666666" scale="0.85">
+              <m>\text{equipotential curves: the vertical lines } x = \text{constant}</m>
+            </label>
+            <label anchor="(0,-2.85)" alignment="s" color="#666666" scale="0.85">
+              <m>\text{the arrows grow with } |x|, \text{ since } |\nabla U| = k|x|</m>
+            </label>
+            <label anchor="(-3.5,2.95)" alignment="e" color="#009E73"><m>\nabla U = kx\,\hat{\mathbf i}</m></label>
+            <label anchor="(1.1,2.95)" alignment="e" color="#D55E00"><m>\mathbf F = -kx\,\hat{\mathbf i}</m></label>
+
+          </coordinates>
+
+          <annotations>
+            <annotation ref="figure" text="Vertical equipotential lines of the spring potential energy, with horizontal gradient arrows pointing away from equilibrium and force arrows pointing back toward it.">
+              <annotation ref="sb-xaxis" text="The horizontal x axis, with the equilibrium position of the spring at the origin."/>
+              <annotation ref="sb-yaxis" text="The vertical y axis."/>
+              <annotation ref="sb-level-a" text="The equipotential line x equals a, a dashed blue vertical line to the right of the origin, on which U equals one half k a squared."/>
+              <annotation ref="sb-level-ma" text="The equipotential line x equals minus a, the mirror image on the left, carrying the same energy one half k a squared."/>
+              <annotation ref="sb-level-2a" text="The equipotential line x equals two a, twice as far from the origin, on which U equals two k a squared, four times as much energy."/>
+              <annotation ref="sb-level-m2a" text="The equipotential line x equals minus two a, the mirror image on the left."/>
+              <annotation ref="sb-grad-a" text="The gradient at a point on the line x equals a, a short green arrow pointing to the right, away from equilibrium."/>
+              <annotation ref="sb-force-a" text="The spring force at that point, a short vermillion arrow of equal length pointing to the left, back toward equilibrium."/>
+              <annotation ref="sb-right-angle-a" text="A small square marking the right angle where these horizontal arrows meet the vertical equipotential line."/>
+              <annotation ref="sb-grad-2a" text="The gradient at a point on the line x equals two a, a green arrow pointing away from equilibrium and twice as long, since its size is k times the distance from equilibrium."/>
+              <annotation ref="sb-force-2a" text="The spring force there, an equally long vermillion arrow pointing back toward equilibrium."/>
+              <annotation ref="sb-grad-ma" text="The gradient on the line x equals minus a, a short green arrow pointing to the left, again away from equilibrium."/>
+              <annotation ref="sb-force-ma" text="The force there, a short vermillion arrow pointing to the right, back toward equilibrium."/>
+              <annotation ref="sb-grad-m2a" text="The gradient on the line x equals minus two a, a long green arrow pointing to the left, away from equilibrium."/>
+              <annotation ref="sb-force-m2a" text="The force there, a long vermillion arrow pointing to the right, back toward equilibrium."/>
+            </annotation>
+          </annotations>
+        </diagram>
+        </prefigure>
       </image>
     </figure>
   </sidebyside>
 </figure>
-
 
 </section>
 
