@@ -288,15 +288,13 @@ By definition, a cross product is perpendicular to both of its factors, so
 </block>
 <block order="4">
 <p>
-Hence <m>\vec F\cdot\vec v
-= q\left(\vec v\times\vec B\right)\cdot\vec v = 0</m>.
+Hence <m>\vec F\cdot\vec v = q\left(\vec v\times\vec B\right)\cdot\vec v = 0</m>.
 </p>
 </block>
 <block order="5">
 <p>
 The kinetic energy satisfies
-<m>\dfrac{d}{dt}\left(\tfrac12 m\,\vec v\cdot\vec v\right)
- = m\,\vec v\cdot\dfrac{d\vec v}{dt} = \vec F\cdot\vec v</m>.
+<m>\dfrac{d}{dt}\left(\tfrac12 m\,\vec v\cdot\vec v\right) = m\,\vec v\cdot\dfrac{d\vec v}{dt} = \vec F\cdot\vec v</m>.
 </p>
 </block>
 <block order="6">
@@ -480,8 +478,7 @@ them — line 4 faithfully reports the (wrong) number produced by line 3.
 <areas>
 <p><area correct="no"><m>\nabla f = \left\langle 2xy,\; x^2\right\rangle</m></area></p>
 <p><area correct="no"><m>\nabla f(1,2) = \left\langle 4,\; 1\right\rangle</m></area></p>
-<p><area correct="yes"><m>D_{\vec v}f(1,2) = \nabla f(1,2)\cdot\vec v
-  = (4)(3) + (1)(4) = 16</m></area></p>
+<p><area correct="yes"><m>D_{\vec v}f(1,2) = \nabla f(1,2)\cdot\vec v = (4)(3) + (1)(4) = 16</m></area></p>
 <p><area correct="no">So the directional derivative equals <m>16</m>.</area></p>
 </areas>
 </exercise>
