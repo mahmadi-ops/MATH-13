@@ -678,4 +678,58 @@ and the work done is
 
 </section>
 
+
+<!-- ================================================================ -->
+<section xml:id="sec-data-science">
+<title>An Application of the Dot Product: Data Science</title>
+
+<p>
+  Recall from <xref ref="thm-angle-formula"/> we were able to compute the angle between two vectors using the dot product.
+  In data science, this is often used to compute the similarity between two vectors of data. 
+  For example, if we have two vectors representing the ratings of two users for a set of movies, we can compute the cosine 
+  similarity between them using the dot product. 
+</p>
+
+<p>
+  We can define the angle <m>\theta</m> between two vectors <m>{\mathbf u} </m> and <m>\mathbf v</m> as:
+</p>
+
+<md>
+   <mrow> \theta \amp = \arccos \left(\frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}\right) </mrow> 
+   <mrow> \amp \arccos \left(\frac{u_1v_1+u_2v_2+u_3v_3}{\|\mathbf{u}\| \|\mathbf{v}\|}\right)</mrow>
+</md>
+<p>
+We define <m>\mathbf{u} \cdot \mathbf{v} = u_1v_1+u_2v_2+u_3v_3 </m> in <m>\mathbb{R}^3</m>
+with the magnitude of a vector <m>\mathbf{u}</m> defined as <m>\|\mathbf{u}\| = \sqrt{u_1^2+u_2^2+u_3^2}</m>.
+We can extend this definition to <m>\mathbb{R}^n</m> so that we can compute the angle between two vectors of any dimension.
+That is, the angle <m>\theta</m> between the two vectors can now be written as:
+</p>
+
+<md>
+   \theta = \arccos \left(\frac{\sum_{i=1}^n u_i v_i}{ \sqrt{\sum_{i=1}^n u_i^2} \sqrt{\sum_{i=1}^n v_i^2} }\right)
+</md>
+
+<p>
+Consider the following example of two users rating a set of movies.  Suppose we have two users, Alice and Bob, who have rated 5 
+movies on a scale of 1 to 5. Suppose that Alice's ratings for the 5 movies are denoted as <m>\vec{u} </m>
+and Bob's ratings for the same 5 movies are denoted as <m>\vec{v}</m>.
+The ratings are as follows:  
+</p>
+
+<md>
+  \vec{u} = \langle 4, 3, 5, 2, 4 \rangle \\
+  \vec{v} = \langle 3, 4, 4, 3, 5 \rangle
+</md>
+
+<p>
+Does Alice and Bob have similar tastes in movies?  We leave the computation of the angle between their ratings as an exercise for the reader.
+</p>
+
+
+</section>
+
+
+
+
+
 </chapter>
