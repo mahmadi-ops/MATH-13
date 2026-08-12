@@ -698,6 +698,9 @@ vector relative to the axis of rotation is <m>\vec r</m>. The
 </statement>
 </definition>
 
+<!-- TODO: restore once assets/torque-cross-product.html exists. The iframe
+     asset was never written, so this figure 404s in the built book. -->
+<!--
 <figure xml:id="fig-int-torque">
 <caption>
 Interactive view of <xref ref="eq-torque-def"/>. The force <m>\vec F</m> is
@@ -732,6 +735,7 @@ rotation changes sense. Either vector can also be moved with the keyboard
 </instructions>
 </interactive>
 </figure>
+-->
 
 <p>
 Everything we know about the cross product now translates into physics.
