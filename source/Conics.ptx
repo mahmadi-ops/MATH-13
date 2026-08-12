@@ -72,6 +72,8 @@
       changes the orientation.
     </p>
 
+    <!-- HIDDEN: static conic slicer. The animated slicer below covers the same ground.
+         To restore, delete this comment wrapper.
     <interactive xml:id="interactive-conic-slicer" iframe="conic-slicer.html" width="100%" aspect="8:7">
       <instructions>
         <p>
@@ -87,16 +89,59 @@
         automatically.</p>
       </instructions>
     </interactive>
+    -->
+
+    <interactive xml:id="interactive-conic-slicer-manim" iframe="conic-slicer-manim.html" width="100%" aspect="1:1">
+      <instructions>
+        <p>
+        The same cut, animated. Press <q>Play</q> to watch the plane
+        <m>z = m\,y + 1</m> swing from horizontal to steep in one continuous motion:
+        the circle stretches to an ellipse, opens into a parabola at the instant the
+        plane becomes parallel to the gold ruling on the cone (<m>m = 1</m>), and then
+        breaks into the two branches of a hyperbola once the plane is steep enough to
+        reach the lower nappe. The reading at the lower left compares the tilt of the
+        plane with the <m>45^\circ</m> slant of the cone, which is what decides the
+        three cases. Stop the animation at any time and drag the tilt slider yourself.
+        Drag the figure to change the viewpoint, or press <q>Spin</q> to let it
+        turn.</p>
+      </instructions>
+    </interactive>
   </introduction>
 
   <!-- ===================== PARABOLA ===================== -->
   <section xml:id="subsec-parabola">
     <title>Parabola</title>
+    <definition xml:id="def-parabola">
+      <statement>
+        <p>
+          A <term>parabola</term> is the set of points in a plane that are equidistant from a
+          fixed point <m>F</m> (the <term>focus</term>) and a fixed line (the
+          <term>directrix</term>).
+        </p>
+      </statement>
+    </definition>
+
     <p>
-      A <term>parabola</term> is the set of points in a plane that are equidistant from a
-      fixed point <m>F</m> (the <term>focus</term>) and a fixed line (the
-      <term>directrix</term>). For the standard parabola <m>x^2 = 4py</m> the vertex is at
+      The standard equation follows from that definition and nothing else. Choose coordinates
+      that make the picture symmetric: put the focus at <m>F(0,p)</m> and the directrix at
+      <m>y = -p</m>, so the two sit on opposite sides of the origin at equal distances. A point
+      <m>P(x,y)</m> lies on the parabola exactly when its distance to <m>F</m> equals its
+      distance to the directrix, and that second distance is measured straight down to the foot
+      <m>(x,-p)</m>:
+<md>\sqrt{x^2 + (y-p)^2} = |y+p|.</md>
+</p>
+    <p>Both sides are non-negative, so squaring loses nothing:
+<md>x^2 + y^2 - 2py + p^2 = y^2 + 2py + p^2.</md>
+</p>
+    <p>The <m>y^2</m> and <m>p^2</m> terms cancel from both sides, leaving <m>x^2 = 4py</m>.
+</p>
+    <p>
+      So for the standard parabola <m>x^2 = 4py</m> the vertex is at
       the origin, the focus is at <m>(0,p)</m>, and the directrix is the line <m>y = -p</m>.
+      The vertex sits halfway between focus and directrix, which is why both are a distance
+      <m>|p|</m> from it. If <m>p \lt 0</m> the same algebra applies unchanged and the curve
+      opens downward; interchanging the roles of <m>x</m> and <m>y</m> gives the sideways
+      parabola <m>y^2 = 4px</m>.
     </p>
 
     <figure xml:id="fig-parabola-def">
@@ -225,7 +270,7 @@ and the directrix is the horizontal line <m>y = -p = \tfrac{1}{2}</m>.</p>
 
     <solution xml:id="sol-parabola-2">
       <p>
-        Here we run the definition in reverse. A point <m>(x,y)</m> lies on the parabola
+        Here we run <xref ref="def-parabola"/> in reverse. A point <m>(x,y)</m> lies on the parabola
         exactly when its distance to the focus equals its distance to the directrix:
 <md>\sqrt{(x-2)^2 + y^2} = |x+2|.</md>
 </p>
@@ -296,9 +341,16 @@ and the directrix is the horizontal line <m>y = -p = \tfrac{1}{2}</m>.</p>
   <!-- ===================== ELLIPSE ===================== -->
   <section xml:id="subsec-ellipse">
     <title>Ellipse</title>
+    <definition xml:id="def-ellipse">
+      <statement>
+        <p>
+          An <term>ellipse</term> is the set of points in a plane the sum of whose distances
+          from two fixed points <m>F_1</m> and <m>F_2</m> (the <term>foci</term>) is constant.
+        </p>
+      </statement>
+    </definition>
+
     <p>
-      An <term>ellipse</term> is the set of points in a plane the sum of whose distances
-      from two fixed points <m>F_1</m> and <m>F_2</m> (the <term>foci</term>) is constant.
       For <m>\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1</m> with <m>a \gt b</m>, the segment
       joining <m>(a,0)</m> and <m>(-a,0)</m> is the <term>semi-major axis</term>, the
       segment joining <m>(0,b)</m> and <m>(0,-b)</m> is the <term>semi-minor axis</term>,
@@ -365,7 +417,7 @@ and the directrix is the horizontal line <m>y = -p = \tfrac{1}{2}</m>.</p>
 
     <p>
       Where do the formulas for <m>a</m> come from? Two facts do all the work. First,
-      evaluating the definition at the vertex <m>(a,0)</m> shows that the two focal radii
+      evaluating <xref ref="def-ellipse"/> at the vertex <m>(a,0)</m> shows that the two focal radii
       there are <m>a-c</m> and <m>a+c</m>, so their sum is
 <md>r_1 + r_2 = (a-c) + (a+c) = 2a,</md>
 which identifies the constant in the definition as <m>2a</m>; equivalently
@@ -375,7 +427,8 @@ which identifies the constant in the definition as <m>2a</m>; equivalently
 <md>a^2 = b^2 + c^2 \qquad\Longleftrightarrow\qquad c^2 = a^2 - b^2.</md>
 </p>
     <p>
-      So for an ellipse <m>a</m> is the <em>hypotenuse</em> of that triangle, which is why
+      So for the ellipse in <xref ref="fig-ellipse-def"/>, <m>a</m> is the <em>hypotenuse</em>
+      of that triangle, which is why
       <m>a</m> is the largest of the three lengths and why <m>c^2 = a^2 - b^2</m> carries a
       minus sign.
     </p>
@@ -386,15 +439,6 @@ which identifies the constant in the definition as <m>2a</m>; equivalently
       triangle giving <m>a^2 = b^2 + c^2</m>.</caption>
       <video xml:id="video-ellipse-formula-a"
              source="videos/ellipse_formula_a_1080p.mp4"
-             width="90%" aspect="16:9"/>
-    </figure>
-
-    <figure xml:id="vid-ellipse-find-a">
-      <caption>Animation: in practice, put the equation in standard form and read <m>a^2</m>
-      off the <em>larger</em> denominator; then <m>a</m> is the semi-major axis, measured
-      from the center to a vertex.</caption>
-      <video xml:id="video-ellipse-find-a"
-             source="videos/ellipse_find_a_1080p.mp4"
              width="90%" aspect="16:9"/>
     </figure>
 
@@ -453,6 +497,15 @@ so the foci are <m>F_1(\sqrt{5},0)</m> and <m>F_2(-\sqrt{5},0)</m>.</p>
           </diagram>
           </prefigure>
         </image>
+      </figure>
+
+      <figure xml:id="vid-ellipse-find-a">
+        <caption>Animation: in practice, put the equation in standard form and read <m>a^2</m>
+        off the <em>larger</em> denominator; then <m>a</m> is the semi-major axis, measured
+        from the center to a vertex.</caption>
+        <video xml:id="video-ellipse-find-a"
+               source="videos/ellipse_find_a_1080p.mp4"
+               width="90%" aspect="16:9"/>
       </figure>
     </solution>
 </example>
@@ -533,10 +586,18 @@ so the foci are <m>F_1(\sqrt{5},0)</m> and <m>F_2(-\sqrt{5},0)</m>.</p>
   <!-- ===================== HYPERBOLA ===================== -->
   <section xml:id="subsec-hyperbola">
     <title>Hyperbola</title>
+    <definition xml:id="def-hyperbola">
+      <statement>
+        <p>
+          A <term>hyperbola</term> is the set of points in a plane the <em>difference</em> of
+          whose distances from two fixed points <m>F_1</m> and <m>F_2</m> (the
+          <term>foci</term>) is constant.
+        </p>
+      </statement>
+    </definition>
+
     <p>
-      A <term>hyperbola</term> is the set of points in a plane the <em>difference</em> of
-      whose distances from two fixed points <m>F_1</m> and <m>F_2</m> (the
-      <term>foci</term>) is constant. For <m>\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1</m> the
+      For <m>\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1</m> the
       vertices are <m>(\pm a, 0)</m>, the foci satisfy <m>c^2 = a^2 + b^2</m>, and the
       asymptotes are <m>y = \pm\dfrac{b}{a}\,x</m>.
     </p>
@@ -603,7 +664,7 @@ so the foci are <m>F_1(\sqrt{5},0)</m> and <m>F_2(-\sqrt{5},0)</m>.</p>
 
     <p>
       The formulas for <m>a</m> arise exactly as they did for the ellipse, with sums
-      replaced by differences. Evaluating the definition at the vertex <m>(a,0)</m>, the two
+      replaced by differences. Evaluating <xref ref="def-hyperbola"/> at the vertex <m>(a,0)</m>, the two
       focal radii are <m>c-a</m> and <m>c+a</m>, so
 <md>|r_1 - r_2| = (c+a) - (c-a) = 2a,</md>
 identifying the constant as <m>2a</m>, or <m>a = \frac{1}{2}\,|r_1 - r_2|</m>. For the
@@ -627,13 +688,92 @@ identifying the constant as <m>2a</m>, or <m>a = \frac{1}{2}\,|r_1 - r_2|</m>. F
              width="90%" aspect="16:9"/>
     </figure>
 
-    <figure xml:id="vid-hyperbola-find-a">
-      <caption>Animation: in practice, put the equation in standard form and read <m>a^2</m>
-      off the denominator under the <em>positive</em> term; then <m>a</m> is measured along
-      the transverse axis, from the center to a vertex.</caption>
-      <video xml:id="video-hyperbola-find-a"
-             source="videos/hyperbola_find_a_1080p.mp4"
-             width="90%" aspect="16:9"/>
+    <p>
+      The same box explains the asymptotes. Solving <m>\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1</m>
+      for <m>y</m> gives
+<md>y = \pm\frac{b}{a}\,\sqrt{x^2 - a^2}
+      = \pm\frac{b}{a}\,x\,\sqrt{1 - \frac{a^2}{x^2}}\qquad (x \gt 0).</md>
+</p>
+    <p>
+      The whole difference between the hyperbola and the pair of lines <m>y = \pm\frac{b}{a}x</m>
+      is that square root. As <m>|x|</m> grows, <m>a^2/x^2 \to 0</m>, so the root tends to
+      <m>1</m> and the curve tends to those lines. The gap closes but never shuts: since
+      <m>\sqrt{1 - a^2/x^2} \lt 1</m> for every finite <m>x</m>, each branch stays strictly
+      inside its asymptotes, approaching without ever touching. That is exactly the behavior of
+      an asymptote<mdash/>and it is why <m>a</m> and <m>b</m>, which never appear as distances
+      to a focus, nonetheless control the shape at infinity.
+    </p>
+    <p>
+      Geometrically the lines are just the extended diagonals of the central box, as
+      <xref ref="fig-hyperbola-box"/> shows: the diagonal through the corner <m>(a,b)</m> rises
+      <m>b</m> over a run of <m>a</m>, so its slope is <m>b/a</m>, and the one through
+      <m>(a,-b)</m> has slope <m>-b/a</m>. So drawing the box gives the asymptotes for free, and
+      the box plus the two vertices is enough to sketch the curve. For a vertical hyperbola
+      <m>\dfrac{y^2}{a^2} - \dfrac{x^2}{b^2} = 1</m> the box is the same, but the transverse
+      axis is vertical and the slopes become <m>\pm\dfrac{a}{b}</m>.
+    </p>
+
+    <figure xml:id="fig-hyperbola-box">
+      <caption>The central box has half-width <m>a</m> and half-height <m>b</m>. Its diagonals,
+      extended, are exactly the asymptotes: the diagonal to the corner <m>(a,b)</m> has run
+      <m>a</m> and rise <m>b</m>, hence slope <m>\frac{b}{a}</m>.</caption>
+      <image width="65%">
+        <prefigure xmlns="https://prefigure.org" label="hyperbola-box">
+          <diagram dimensions="(420,313)" margins="8">
+            <definition>aa = 2</definition>
+            <definition>bb = 1.6</definition>
+            <definition>H(x,y) = x^2/aa^2 - y^2/bb^2</definition>
+            <coordinates bbox="(-4.3, -3.2, 4.3, 3.2)">
+              <axes xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <rectangle at="box" lower-left="(-aa,-bb)" dimensions="(2*aa, 2*bb)"
+                         fill="none" stroke="gray" thickness="2"/>
+              <group at="asymptotes">
+                <line p1="(0,0)" p2="(aa,bb)" stroke="black" thickness="1" dash="5 4" infinite="yes"/>
+                <line p1="(0,0)" p2="(aa,-bb)" stroke="black" thickness="1" dash="5 4" infinite="yes"/>
+              </group>
+              <group at="diagonals">
+                <line p1="(-aa,-bb)" p2="(aa,bb)" stroke="purple" thickness="2.5"/>
+                <line p1="(-aa,bb)" p2="(aa,-bb)" stroke="purple" thickness="2.5"/>
+              </group>
+              <group at="run-rise">
+                <line p1="(0,0)" p2="(aa,0)" stroke="red" thickness="3"/>
+                <line p1="(aa,0)" p2="(aa,bb)" stroke="green" thickness="3"/>
+              </group>
+              <implicit-curve at="hyperbola" function="H" k="1" stroke="blue" thickness="2.5"/>
+              <group at="vertices">
+                <point p="(aa,0)" fill="red" size="2.5"/>
+                <point p="(-aa,0)" fill="red" size="2.5"/>
+              </group>
+              <point at="corner" p="(aa,bb)" fill="purple" size="3"/>
+              <label at="corner-label" anchor="(aa,bb)" alignment="nw" offset="(-4,4)"><m>(a,b)</m></label>
+              <label at="run-label" anchor="(aa/2,0)" alignment="s" offset="(0,-6)"><m>a</m></label>
+              <label at="rise-label" anchor="(aa,bb/2)" alignment="w" offset="(-6,0)"><m>b</m></label>
+              <label at="asym-label-r" anchor="(3.0,3.0*bb/aa)" alignment="nw" offset="(-2,2)"><m>y=\tfrac{b}{a}x</m></label>
+              <label at="asym-label-l" anchor="(-3.0,3.0*bb/aa)" alignment="ne" offset="(2,2)"><m>y=-\tfrac{b}{a}x</m></label>
+              <label at="box-label" anchor="(-1.05,-2.75)" alignment="center"><m>\text{central box}</m></label>
+            </coordinates>
+            <annotations>
+              <annotation ref="hyperbola"
+                  text="A hyperbola drawn together with its central box, showing that the extended diagonals of the box are the asymptotes">
+                <annotation ref="box"
+                    text="The central box, a rectangle centered at the origin with half-width a and half-height b, so its corners are at plus or minus a comma plus or minus b"/>
+                <annotation ref="diagonals"
+                    text="The two diagonals of the box drawn in purple, from corner to opposite corner through the center"/>
+                <annotation ref="asymptotes"
+                    text="The same two diagonals continued beyond the box as dashed lines, the asymptotes y equals plus and minus b over a times x"/>
+                <annotation ref="run-rise"
+                    text="A red horizontal segment of length a from the center to the vertex, and a green vertical segment of length b from the vertex up to the corner, showing the diagonal has run a and rise b and therefore slope b over a"/>
+                <annotation ref="corner"
+                    text="The corner of the box at a comma b, the point the diagonal passes through"/>
+                <annotation ref="hyperbola"
+                    text="The hyperbola itself, two blue branches opening left and right, each staying inside its asymptotes while drawing closer to them" sonify="yes"/>
+                <annotation ref="vertices"
+                    text="The vertices at plus and minus a comma zero, where each branch meets the box"/>
+              </annotation>
+            </annotations>
+          </diagram>
+        </prefigure>
+      </image>
     </figure>
 
     <example xml:id="ex-hyperbola-1">
@@ -702,6 +842,15 @@ so the foci are <m>(\pm 5, 0)</m>, the vertices are <m>(\pm 4, 0)</m>, and the
           </diagram>
           </prefigure>
         </image>
+      </figure>
+
+      <figure xml:id="vid-hyperbola-find-a">
+        <caption>Animation: in practice, put the equation in standard form and read <m>a^2</m>
+        off the denominator under the <em>positive</em> term; then <m>a</m> is measured along
+        the transverse axis, from the center to a vertex.</caption>
+        <video xml:id="video-hyperbola-find-a"
+               source="videos/hyperbola_find_a_1080p.mp4"
+               width="90%" aspect="16:9"/>
       </figure>
     </solution>
 </example>
@@ -797,7 +946,8 @@ so the foci are <m>(\pm 5, 0)</m>, the vertices are <m>(\pm 4, 0)</m>, and the
       focus emits a perfectly parallel beam<mdash/>which is why a headlight is shaped this way too.
     </p>
     <p>
-      This is not a coincidence of the shape; it follows from the equidistance definition. For
+      This is not a coincidence of the shape; it follows from the equidistance definition
+      (<xref ref="def-parabola"/>). For
       <m>x^2 = 4py</m> the tangent at the point <m>(x_0,\,x_0^2/4p)</m> has slope <m>x_0/2p</m>,
       and a short computation shows that the incoming vertical ray and the segment from that
       point to <m>(0,p)</m> make equal angles with the normal. The law of reflection then sends
@@ -889,7 +1039,8 @@ so the foci are <m>(\pm 5, 0)</m>, the vertices are <m>(\pm 4, 0)</m>, and the
       delivered to a listener standing at the other focus, while people in between hear nothing.
     </p>
     <p>
-      The constant-sum definition explains why it works so well. Every path from one focus to the
+      The constant-sum definition (<xref ref="def-ellipse"/>) explains why it works so well.
+      Every path from one focus to the
       wall and on to the other focus has total length <m>r_1 + r_2 = 2a</m><mdash/>the
       <em>same</em> length, no matter where it strikes. So the reflected sound does not merely
       arrive at the far focus: it arrives from every direction <em>at the same instant</em>, in
