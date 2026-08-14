@@ -27,16 +27,24 @@
     --sans:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --serif: "PT Serif", "Times New Roman", Times, serif;
   }
-  html, body { margin: 0; padding: 0; background: var(--bg); }
+  /* The figure is framed by the page at a fixed aspect ratio, so it lays out
+     as a column that exactly fills the iframe: the panel takes what it needs
+     and the stage takes the rest. Computing the stage height from
+     innerHeight minus the panel used to leave a pixel or two over, which
+     showed up as a scrollbar. */
+  html, body { margin: 0; padding: 0; height: 100%; overflow: hidden;
+               background: var(--bg); }
   body {
     font-family: var(--sans);
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
   }
-  #app { width: 100%; box-sizing: border-box; }
+  #app { width: 100%; height: 100%; box-sizing: border-box;
+         display: flex; flex-direction: column; }
 
   /* ---- stage ---- */
-  #stage { position: relative; width: 100%; background: var(--bg); }
+  #stage { position: relative; width: 100%; background: var(--bg);
+           flex: 1 1 auto; min-height: 0; overflow: hidden; }
   canvas { display: block; cursor: grab; }
   canvas:active { cursor: grabbing; }
 
@@ -97,6 +105,7 @@
 
   /* ---- control panel ---- */
   #panel {
+    flex: 0 0 auto;
     border-top: 1px solid var(--edge);
     background: var(--panel);
     padding: 9px 12px 11px 12px;
@@ -689,17 +698,18 @@
   // That keeps them from colliding on a narrow phone as well as on a wide screen.
   function resize() {
     var w = document.getElementById("app").clientWidth;
-    var h = Math.max(220, window.innerHeight - document.getElementById("panel").offsetHeight - 2);
+    // the stage is the flex column's leftover space, so it is measured,
+    // not computed: no rounding is left over to make a scrollbar
+    var h = stage.clientHeight;
 
     var card = document.getElementById("eqcard"), meter = document.getElementById("meter");
     // Below 560px the card is a strip above the canvas (see the media query), so it
     // costs canvas height instead of covering the cone.
     var stacked = window.getComputedStyle(card).position === "static";
     var cardH = stacked ? card.offsetHeight : 0;
-    var ch = Math.max(150, h - cardH);
+    var ch = Math.max(120, h - cardH);
     // size the stage to what it actually holds, so the canvas can never spill over
     // the control panel and swallow its clicks
-    stage.style.height = (cardH + ch) + "px";
 
     renderer.setSize(w, ch);
     camera.aspect = w / ch;
