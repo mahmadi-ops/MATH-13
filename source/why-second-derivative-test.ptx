@@ -41,7 +41,7 @@ and completing the square shows that the discriminant
 Suppose <m>f(x,y)</m> has continuous first and second partial
 derivatives near a critical point <m>(a,b)</m>, so that
 <m>f_x(a,b) = f_y(a,b) = 0</m>. Fix a unit vector
-<m>\mathbf{u} = (u_1, u_2)</m> and walk away from the critical point
+<m>\mathbf{u} = \langle u_1, u_2 \rangle</m> and walk away from the critical point
 along the line through <m>(a,b)</m> in the direction of
 <m>\mathbf{u}</m>. The height of the surface above this line is the
 single-variable function
@@ -88,7 +88,7 @@ differentiate once more.
 Apply <m>D_{\mathbf{u}}</m> to the function <m>D_{\mathbf{u}}f</m>.
 Differentiating <xref ref="eq-sdt-first"/> with the chain rule again,
 and using the equality of the mixed partials
-(<m>f_{xy} = f_{yx}</m>, which holds because the second partials are
+(<m>f_{xy} = f_{yx}</m>), which holds because the second partials are
 continuous),
 <md>
 <mrow>g''(t) \amp = \frac{\partial}{\partial x}\!\left(f_x u_1 + f_y u_2\right) u_1
@@ -131,7 +131,7 @@ some lines through <m>(a,b)</m> and falls along others.
 </p>
 
 <p>
-Writing <m>\mathbf{u} = (\cos\theta, \sin\theta)</m>, equation
+Writing <m>\mathbf{u} = \langle \cos\theta, \sin\theta \rangle</m>, equation
 <xref ref="eq-sdt-second"/> becomes a function of the direction angle,
 <md xml:id="eq-sdt-angle" number="yes">
 D^2_{\mathbf{u}}f
@@ -209,7 +209,7 @@ a local maximum.
 <p>
 <em>Case <m>H \lt 0</m>.</em> The two terms in
 <xref ref="eq-sdt-square"/> now compete. If <m>f_{xx} \neq 0</m>,
-taking <m>\mathbf{u} = (1,0)</m> gives
+taking <m>\mathbf{u} = \langle 1,0 \rangle</m> gives
 <m>f_{xx}\cdot D^2_{\mathbf{u}}f = f_{xx}^2 \gt 0</m>, while choosing
 <m>\mathbf{u}</m> proportional to <m>(-f_{xy}, f_{xx})</m> kills the
 perfect square and gives
