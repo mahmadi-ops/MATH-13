@@ -458,7 +458,7 @@ Among the two with <m>D \gt 0</m>, the sign of <m>f_{xx}</m> decides:
 <p>
 Below is a student's computation of the derivative of
 <m>f(x,y) = x^2 y</m> at the point <m>(1,2)</m> in the direction of
-<m>\vec v = \langle 3,4\rangle</m>. Exactly one line contains the error.
+<m>\mathbf v = \langle 3,4\rangle</m>. Exactly one line contains the error.
 Click on that line.
 </p>
 </statement>
