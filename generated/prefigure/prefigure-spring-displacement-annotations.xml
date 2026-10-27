@@ -1,0 +1,102 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-spring-displacement-figure" speech2="A block on a horizontal spring displaced from equilibrium, drawn above the parabola giving its potential energy.">
+      <grouped>prefigure-spring-displacement-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-spring-displacement-sa-wall</active>
+        <active>prefigure-spring-displacement-sa-floor</active>
+        <active>prefigure-spring-displacement-sa-spring</active>
+        <active>prefigure-spring-displacement-sa-block</active>
+        <active>prefigure-spring-displacement-sa-equilibrium</active>
+        <active>prefigure-spring-displacement-sa-displacement</active>
+        <active>prefigure-spring-displacement-sa-xaxis</active>
+        <active>prefigure-spring-displacement-sa-Uaxis</active>
+        <active>prefigure-spring-displacement-sa-parabola</active>
+        <active>prefigure-spring-displacement-sa-energy</active>
+      </children>
+      <components>
+        <active>prefigure-spring-displacement-sa-wall</active>
+        <active>prefigure-spring-displacement-sa-floor</active>
+        <active>prefigure-spring-displacement-sa-spring</active>
+        <active>prefigure-spring-displacement-sa-block</active>
+        <active>prefigure-spring-displacement-sa-equilibrium</active>
+        <active>prefigure-spring-displacement-sa-displacement</active>
+        <active>prefigure-spring-displacement-sa-xaxis</active>
+        <active>prefigure-spring-displacement-sa-Uaxis</active>
+        <active>prefigure-spring-displacement-sa-parabola</active>
+        <active>prefigure-spring-displacement-sa-energy</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-spring-displacement-sa-wall" speech2="A hatched wall at the left, holding the fixed end of the spring.">
+      <active>prefigure-spring-displacement-sa-wall</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-spring-displacement-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-displacement-sa-floor" speech2="A hatched horizontal floor the block slides along.">
+      <active>prefigure-spring-displacement-sa-floor</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-spring-displacement-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-displacement-sa-spring" speech2="The spring, drawn as a blue coil running from the wall to the block.">
+      <active>prefigure-spring-displacement-sa-spring</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-spring-displacement-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-displacement-sa-block" speech2="The block of mass m, pulled to the right of its equilibrium position so that the spring is stretched.">
+      <active>prefigure-spring-displacement-sa-block</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-spring-displacement-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-displacement-sa-equilibrium" speech2="A dashed vertical line marking the equilibrium position, where x equals zero. It runs the full height of the figure, linking the block picture above to the energy graph below.">
+      <active>prefigure-spring-displacement-sa-equilibrium</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-spring-displacement-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-displacement-sa-displacement" speech2="A double headed arrow between the equilibrium line and the block, marking the displacement x.">
+      <active>prefigure-spring-displacement-sa-displacement</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-spring-displacement-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-displacement-sa-xaxis" speech2="The horizontal axis of the energy graph, labelled x, on the same scale as the picture above it.">
+      <active>prefigure-spring-displacement-sa-xaxis</active>
+      <position>7</position>
+      <parents>
+        <grouped>prefigure-spring-displacement-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-displacement-sa-Uaxis" speech2="The vertical axis of the energy graph, labelled U, rising from the equilibrium position.">
+      <active>prefigure-spring-displacement-sa-Uaxis</active>
+      <position>8</position>
+      <parents>
+        <grouped>prefigure-spring-displacement-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-displacement-sa-parabola" speech2="The graph of the potential energy U equals one half k x squared, an upward opening parabola with its vertex at the equilibrium position. It is symmetric, so stretching and compressing by the same amount store the same energy.">
+      <active>prefigure-spring-displacement-sa-parabola</active>
+      <position>9</position>
+      <parents>
+        <grouped>prefigure-spring-displacement-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-spring-displacement-sa-energy" speech2="The point on the parabola directly below the block, giving the energy one half k x squared stored in the spring at that displacement.">
+      <active>prefigure-spring-displacement-sa-energy</active>
+      <position>10</position>
+      <parents>
+        <grouped>prefigure-spring-displacement-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

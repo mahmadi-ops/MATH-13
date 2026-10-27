@@ -1,0 +1,75 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-gravity-height-figure" speech2="A mass at height y above the surface of the earth, with three dashed horizontal lines of constant gravitational potential energy.">
+      <grouped>prefigure-gravity-height-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-gravity-height-ga-ground</active>
+        <active>prefigure-gravity-height-ga-axis</active>
+        <active>prefigure-gravity-height-ga-level1</active>
+        <active>prefigure-gravity-height-ga-level2</active>
+        <active>prefigure-gravity-height-ga-level3</active>
+        <active>prefigure-gravity-height-ga-mass</active>
+        <active>prefigure-gravity-height-ga-height</active>
+      </children>
+      <components>
+        <active>prefigure-gravity-height-ga-ground</active>
+        <active>prefigure-gravity-height-ga-axis</active>
+        <active>prefigure-gravity-height-ga-level1</active>
+        <active>prefigure-gravity-height-ga-level2</active>
+        <active>prefigure-gravity-height-ga-level3</active>
+        <active>prefigure-gravity-height-ga-mass</active>
+        <active>prefigure-gravity-height-ga-height</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-gravity-height-ga-ground" speech2="The surface of the earth, a hatched horizontal line across the bottom of the figure.">
+      <active>prefigure-gravity-height-ga-ground</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-gravity-height-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-height-ga-axis" speech2="A vertical axis labelled y, measuring height above the surface.">
+      <active>prefigure-gravity-height-ga-axis</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-gravity-height-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-height-ga-level1" speech2="The equipotential surface at height y one, a dashed blue horizontal line labelled U equals m g y one. It is the lowest of the three, so it carries the least potential energy.">
+      <active>prefigure-gravity-height-ga-level1</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-gravity-height-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-height-ga-level2" speech2="The equipotential surface at height y two, a dashed blue horizontal line labelled U equals m g y two. The mass rests on this line.">
+      <active>prefigure-gravity-height-ga-level2</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-gravity-height-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-height-ga-level3" speech2="The equipotential surface at height y three, a dashed blue horizontal line labelled U equals m g y three, the highest of the three and the one carrying the most potential energy.">
+      <active>prefigure-gravity-height-ga-level3</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-gravity-height-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-height-ga-mass" speech2="The mass m, drawn as a small filled circle sitting on the middle equipotential surface.">
+      <active>prefigure-gravity-height-ga-mass</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-gravity-height-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-height-ga-height" speech2="A double headed arrow from the ground up to the mass, marking its height y two above the surface.">
+      <active>prefigure-gravity-height-ga-height</active>
+      <position>7</position>
+      <parents>
+        <grouped>prefigure-gravity-height-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
