@@ -1127,8 +1127,19 @@ from a hyperboloid of two sheets.
       </latex-image>
     </image>
   </figure>
+  <figure xml:id="fig-quadric-summary-video">
+    <caption>
+      The quadric surfaces told by their slices, on the parent graphs
+      <m>z = x^2 + y^2</m>, <m>z^2 = x^2 + y^2</m>, <m>x^2 + y^2 - z^2 = 1</m>,
+      <m>z^2 - x^2 - y^2 = 1</m>, and <m>z = x^2 - y^2</m>.
+    </caption>
+    <video xml:id="video-quadric-summary"
+           source="videos/quadric_surfaces_summary_manim.mp4"
+           width="100%" aspect="16:9"/>
+  </figure>
+
   <p>
-    The animation in <xref ref="fig-quadric-summary-video"/> retells the table on
+    <xref ref="fig-quadric-summary-video"/> retells the table on
     the parent graphs, the ones whose coefficients are all <m>1</m> or <m>-1</m>:
     slicing with <m>x = 0</m>, <m>y = 0</m>, and <m>z = c</m> gives two parabolas and
     a circle for the paraboloid, two pairs of crossing lines and circles for the cone,
@@ -1140,17 +1151,6 @@ from a hyperboloid of two sheets.
     paraboloid comes last, with its two parabolas of opposite types and its
     hyperbolas.
   </p>
-
-  <figure xml:id="fig-quadric-summary-video">
-    <caption>
-      The quadric surfaces told by their slices, on the parent graphs
-      <m>z = x^2 + y^2</m>, <m>z^2 = x^2 + y^2</m>, <m>x^2 + y^2 - z^2 = 1</m>,
-      <m>z^2 - x^2 - y^2 = 1</m>, and <m>z = x^2 - y^2</m>.
-    </caption>
-    <video xml:id="video-quadric-summary"
-           source="videos/quadric_surfaces_summary_manim.mp4"
-           width="100%" aspect="16:9"/>
-  </figure>
 </section>
 
 <section xml:id="subsec-quadric-applications">
