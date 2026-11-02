@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xml:id="chapter-functions-limits-partial-visuals" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Visualizing Functions, Limits, and Partial Derivatives</title>
+<introduction><p>
+These visual comparisons connect input coordinates, output height,
+level curves, paths of approach, and the tangent slopes used in partial
+derivatives. Drag a three-dimensional graph to rotate it.
+</p></introduction>
+<section xml:id="sec-fsv-functions-two-variables">
+<title>Functions of One and Two Variables</title>
+<p>
+A function of one variable takes one input <m>x</m> and returns one
+number, shown as the height <m>y=f(x)</m> in the plane. A function of two
+variables takes a pair <m>(x,y)</m> and returns one number, shown as the
+height <m>z=f(x,y)</m> in space.
+</p>
+<figure xml:id="fig-fsv-one-vs-two-variables-video">
+<caption>
+One input and two inputs, side by side. On the left, <m>x</m> determines
+the height <m>y=f(x)</m>. On the right, the pair <m>(x,y)</m> determines
+the height <m>z=f(x,y)</m>, so <m>y</m> is now a second input.
+Blue marks the input <m>x</m>, green marks the second input <m>y</m>,
+and gold marks the single output height in both graphs.
+</caption>
+<video xml:id="video-fsv-one-vs-two-variables"
+       source="videos/one_vs_two_variables_manim.mp4"
+       preview="videos/previews/one_vs_two_variables_manim.jpg"
+       width="100%" aspect="16:9"/>
+</figure>
+</section>
+<section xml:id="sec-fsv-level-curves">
+<title>Level Curves and Contour Maps</title>
+<p>
+A level curve consists of the points where <m>f(x,y)=c</m>. On the graph
+it lies in the horizontal plane <m>z=c</m>; projecting it into the
+<m>xy</m>-plane gives the corresponding contour. The examples below show
+circles for <m>1-x^2-y^2</m>, ellipses for <m>x^2+y^2/4</m>, and
+hyperbolas or crossed lines for <m>x^2-y^2</m>.
+</p>
+<figure xml:id="fig-fsv-level-curves-3d">
+<caption>
+Level curves of <m>f(x,y) = 1 - x^2 - y^2</m> drawn on the surface at the
+equally spaced heights <m>c = \tfrac12, 0, -\tfrac12, -1, -\tfrac32</m>.
+The curve at height <m>c</m> is the intersection of the graph with the
+horizontal plane <m>z = c</m>; higher values of <m>c</m> give smaller
+circles.
+</caption>
+<image width="76%">
+<description>
+<p>
+A dome shaped surface with several horizontal circles drawn on it at
+different heights, each in a different colour. The circles are small near
+the top of the dome and grow larger further down.
+</p>
+</description>
+<asymptote label="asymptote-fsv-level-curves"><![CDATA[
+import graph3;
+viewportmargin=(16,16);
+// HTML remains rotatable; print output uses vector rendering.
+if(settings.outformat != "html") settings.render=0;
+size(12cm,10cm);
+currentprojection=orthographic(camera=(3,-6,3.5),up=Z);
+currentlight=light(gray(0.7),specularfactor=0.1,(4,-3,6),(-4,-1,3));
+
+real R=1.79;
+triple dome(pair p) {
+  return (p.x*cos(p.y),p.x*sin(p.y),1-p.x^2);
+}
+surface s=surface(dome,(0,0),(R,2*pi),12,64);
+// A pale, transparent surface keeps the entire coloured circles visible.
+draw(s,surfacepen=gray(0.85)+opacity(0.18),
+     meshpen=gray(0.65)+opacity(0.18)+linewidth(0.15pt));
+real[] levels={0.5,0,-0.5,-1,-1.5};
+pen[] colours={rgb("E69F00"),rgb("8B1A4A"),rgb("0072B2"),rgb("009E73"),black};
+string[] names={"$c=\tfrac12$","$c=0$","$c=-\tfrac12$","$c=-1$","$c=-\tfrac32$"};
+for(int i=0;i<levels.length;++i) {
+  real c=levels[i], r=sqrt(1-c);
+  draw(circle((0,0,c),r,Z),colours[i]+linewidth(2.6pt));
+  label(names[i],(2.05,1.2,c),W,colours[i]);
+}
+pen ax=gray(0.4)+linewidth(0.5pt);
+draw(Label("$x$",1),(-2,0,0)--(2.15,0,0),ax,Arrow3(size=5));
+draw(Label("$y$",1),(0,-2,0)--(0,2.15,0),ax,Arrow3(size=5));
+draw(Label("$z$",1),(0,0,-2.25)--(0,0,1.25),ax+dashed,Arrow3(size=5));
+// Reserve space around strokes and labels in the interactive viewport.
+currentpicture.addBox((-2.05,-2.05,-2.4),(2.3,2.05,1.4));
+]]></asymptote>
+</image>
+</figure>
+
+<figure xml:id="fig-fsv-contour-map">
+<caption>
+The contour map of <m>f(x,y) = 1 - x^2 - y^2</m>, obtained by projecting
+the level curves of <xref ref="fig-fsv-level-curves-3d"/> down into the
+<m>xy</m>-plane. The contour interval is constant, <m>\Delta c = \tfrac12</m>;
+the legend gives the value of <m>c</m> along each circle.
+</caption>
+<image width="66%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-fsv-contour">
+<diagram dimensions="(360,360)" margins="12">
+<definition>c1(t) = (0.7071*cos(t), 0.7071*sin(t))</definition>
+<definition>c2(t) = (1*cos(t), 1*sin(t))</definition>
+<definition>c3(t) = (1.2247*cos(t), 1.2247*sin(t))</definition>
+<definition>c4(t) = (1.4142*cos(t), 1.4142*sin(t))</definition>
+<definition>c5(t) = (1.5811*cos(t), 1.5811*sin(t))</definition>
+<coordinates bbox="(-2.1,-2.1,2.1,2.1)">
+<axes at="ct-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<parametric-curve at="ct-c1" function="c1" domain="(0,6.2832)"
+                  stroke="#E69F00" thickness="2.5"/>
+<parametric-curve at="ct-c2" function="c2" domain="(0,6.2832)"
+                  stroke="#8B1A4A" thickness="2.5"/>
+<parametric-curve at="ct-c3" function="c3" domain="(0,6.2832)"
+                  stroke="#0072B2" thickness="2.5"/>
+<parametric-curve at="ct-c4" function="c4" domain="(0,6.2832)"
+                  stroke="#009E73" thickness="2.5"/>
+<parametric-curve at="ct-c5" function="c5" domain="(0,6.2832)"
+                  stroke="black" thickness="2.5"/>
+<legend anchor="(2.08,2.08)" alignment="sw" scale="0.85" opacity="1">
+<item ref="ct-c1"><m>c=\tfrac12</m></item>
+<item ref="ct-c2"><m>c=0</m></item>
+<item ref="ct-c3"><m>c=-\tfrac12</m></item>
+<item ref="ct-c4"><m>c=-1</m></item>
+<item ref="ct-c5"><m>c=-\tfrac32</m></item>
+</legend>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="Five concentric circles centred at the origin in the x y plane, each drawn in a different colour, with a legend in the upper right giving the value of c on each. The values step down by one half, from c equals one half on the innermost circle to c equals negative three halves on the outermost.">
+  <annotation ref="ct-c1" text="The level curve where f equals one half, a circle of radius one over root two. It is the innermost circle, so the largest values of f occur near the origin."/>
+  <annotation ref="ct-c2" text="The level curve where f equals zero, the unit circle."/>
+  <annotation ref="ct-c3" text="The level curve where f equals negative one half, a circle of radius root three over two."/>
+  <annotation ref="ct-c4" text="The level curve where f equals negative one, a circle of radius root two."/>
+  <annotation ref="ct-c5" text="The level curve where f equals negative three halves, a circle of radius root five over two. Because c steps down by the same amount from one circle to the next, the circles crowd closer together further out, which tells us the surface is steepest near the rim."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<figure xml:id="fig-fsv-elliptic-paraboloid">
+<caption>
+The elliptic paraboloid <m>z = g(x,y) = x^2 + \frac{y^2}{4}</m>. Slicing
+it with a horizontal plane <m>z = c</m> produces the ellipses of
+<xref ref="fig-fsv-elliptic-contour"/>; the rings drawn here are at the
+same equally spaced heights <m>c = 0.2, 0.4, \ldots, 1</m>.
+</caption>
+<image width="72%">
+<description>
+<p>
+A bowl shaped surface opening upwards, wider in the y direction than in
+the x direction, with several horizontal elliptical rings drawn on it at
+different heights.
+</p>
+</description>
+<asymptote label="asymptote-fsv-elliptic-paraboloid"><![CDATA[
+import graph3;
+viewportmargin=(16,16);
+// HTML remains rotatable; print output uses vector rendering.
+if(settings.outformat != "html") settings.render=0;
+size(12cm,10cm);
+currentprojection=orthographic(camera=(3,-6,3.5),up=Z);
+currentlight=light(gray(0.7),specularfactor=0.1,(4,-3,6),(-4,-1,3));
+
+triple bowl(pair p) {
+  return (p.x*cos(p.y),2*p.x*sin(p.y),p.x^2);
+}
+surface s=surface(bowl,(0,0),(1,2*pi),12,64);
+draw(s,surfacepen=gray(0.85)+opacity(0.18),
+     meshpen=gray(0.65)+opacity(0.18)+linewidth(0.15pt));
+real[] levels={0.2,0.4,0.6,0.8,1.0};
+// These are the contour map's green-to-yellow colours; the yellow is
+// darkened for contrast on a white background.
+pen[] colours={rgb("00441B"),rgb("0B6B3A"),rgb("2C9153"),rgb("57B36B"),rgb("A69900")};
+string[] names={"$c=0.2$","$c=0.4$","$c=0.6$","$c=0.8$","$c=1.0$"};
+for(int i=0;i<levels.length;++i) {
+  real c=levels[i], r=sqrt(c);
+  path3 ring=graph(new triple(real t) {return (r*cos(t),2*r*sin(t),c);},0,2*pi,operator ..);
+  draw(ring,colours[i]+linewidth(2.6pt));
+  label(names[i],(1.5,2.3,1.4-0.28*i),W,colours[i]);
+}
+pen ax=gray(0.4)+linewidth(0.5pt);
+draw(Label("$x$",1),(-1.15,0,0)--(1.35,0,0),ax,Arrow3(size=5));
+draw(Label("$y$",1),(0,-2.2,0)--(0,2.3,0),ax,Arrow3(size=5));
+draw(Label("$z$",1),(0,0,0)--(0,0,1.35),ax+dashed,Arrow3(size=5));
+// Reserve space around strokes and labels in the interactive viewport.
+currentpicture.addBox((-1.3,-2.3,-0.1),(1.65,2.6,1.6));
+]]></asymptote>
+</image>
+</figure>
+
+<figure xml:id="fig-fsv-elliptic-contour">
+<caption>
+Level curves of <m>g(x,y) = x^2 + \frac{y^2}{4}</m> for the equally
+spaced values <m>c = 0.2, 0.4, \ldots, 1</m>. Each is an ellipse twice as
+long in the <m>y</m>-direction as in the <m>x</m>-direction.
+</caption>
+<image width="60%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-fsv-elliptic">
+<diagram dimensions="(330,420)" margins="12">
+<definition>e1(t) = (0.4472*cos(t), 0.8944*sin(t))</definition>
+<definition>e2(t) = (0.6325*cos(t), 1.2649*sin(t))</definition>
+<definition>e3(t) = (0.7746*cos(t), 1.5492*sin(t))</definition>
+<definition>e4(t) = (0.8944*cos(t), 1.7889*sin(t))</definition>
+<definition>e5(t) = (1*cos(t), 2*sin(t))</definition>
+<coordinates bbox="(-1.45,-2.35,1.45,2.35)">
+<axes at="el-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<parametric-curve at="el-e1" function="e1" domain="(0,6.2832)"
+                  stroke="#00441B" thickness="2"/>
+<parametric-curve at="el-e2" function="e2" domain="(0,6.2832)"
+                  stroke="#0B6B3A" thickness="2"/>
+<parametric-curve at="el-e3" function="e3" domain="(0,6.2832)"
+                  stroke="#2C9153" thickness="2"/>
+<parametric-curve at="el-e4" function="e4" domain="(0,6.2832)"
+                  stroke="#57B36B" thickness="2"/>
+<parametric-curve at="el-e5" function="e5" domain="(0,6.2832)"
+                  stroke="#E5D93C" thickness="2.5"/>
+<legend anchor="(-1.42,2.32)" alignment="se" scale="0.85" opacity="1">
+<item ref="el-e1"><m>c=0.2</m></item>
+<item ref="el-e2"><m>c=0.4</m></item>
+<item ref="el-e3"><m>c=0.6</m></item>
+<item ref="el-e4"><m>c=0.8</m></item>
+<item ref="el-e5"><m>c=1.0</m></item>
+</legend>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="Five nested ellipses centred at the origin, all twice as tall as they are wide, with a legend in the upper left. They are shaded from dark green for the innermost, where c equals nought point two, out to yellow for the outermost, where c equals one, in equal steps of nought point two.">
+  <annotation ref="el-e1" text="The innermost level curve, where g equals nought point two."/>
+  <annotation ref="el-e5" text="The outermost level curve, where g equals one. It is the ellipse x squared plus y squared over four equals one, crossing the x axis at plus and minus one and the y axis at plus and minus two."/>
+  <annotation ref="el-axes" text="The ellipses are stretched along the y axis because the y term is divided by four, so reaching a given height takes twice the distance in y that it does in x."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<figure xml:id="fig-fsv-saddle-surface">
+<caption>
+The hyperbolic paraboloid <m>z = h(x,y) = x^2 - y^2</m> over a disk
+centered at the origin, with heights drawn at half scale. The curves on
+it are the level curves at the heights <m>c = -2, -1, 0, 1, 2</m>, in the
+colours of <xref ref="fig-fsv-saddle-contour"/>: the surface rises along
+the <m>x</m>-axis and falls along the <m>y</m>-axis, and the two black
+lines at height <m>0</m> cross at the saddle point.
+</caption>
+<image width="72%">
+<shortdescription>A saddle shaped surface with coloured level curves drawn on it.</shortdescription>
+<description>
+<p>
+A saddle shaped surface over a disk, rising to two high lips over the
+positive and negative x axis and dipping to two low lips over the
+positive and negative y axis. Two black lines cross at the centre, where
+the surface is level. Orange and red curves run across the two high
+lips, and light and dark blue curves across the two low lips.
+</p>
+</description>
+<asymptote label="asymptote-fsv-saddle"><![CDATA[
+import graph3;
+viewportmargin=(16,16);
+if(settings.outformat != "html") settings.render=0;
+size(12cm,10cm);
+currentprojection = orthographic(camera=(2.2,-6,3.0), up=Z);
+currentlight = light(gray(0.6), specularfactor=0.2, (4,-3,6), (-4,-1,3));
+
+// z = x^2 - y^2 over the disk of radius R, written in polar form;
+// heights are drawn at half scale so the saddle is not too tall
+real R = 1.6, k = 0.5;
+triple saddle(pair p) {
+  real r = p.x, t = p.y;
+  return (r*cos(t), r*sin(t), k*r^2*cos(2*t));
+}
+surface s = surface(saddle, (0,0), (R,2*pi), 8, 32, Spline);
+draw(s,surfacepen=gray(0.85)+opacity(0.18),
+     meshpen=gray(0.65)+opacity(0.18)+linewidth(0.15pt));
+
+// level curves z = c, coloured as in the contour map; each branch stops
+// where it leaves the disk, at x^2 + y^2 = |c| cosh(2t) = R^2
+pen lw = linewidth(2.6pt);
+pen[] col = {rgb("D55E00"), rgb("E69F00"), black, rgb("56B4E9"), rgb("0072B2")};
+real[] lev = {2, 1, 0, -1, -2};
+for (int i = 0; i < lev.length; ++i) {
+  real c = lev[i];
+  label("$c="+string(c)+"$",(2.05,1.3,k*c),W,col[i]);
+  if (c == 0) {
+    real u = R/sqrt(2);
+    draw((-u,-u,0)--(u,u,0), col[i]+lw);
+    draw((-u,u,0)--(u,-u,0), col[i]+lw);
+    continue;
+  }
+  real a = sqrt(abs(c)), T = 0.5*acosh(R^2/abs(c));
+  for (int sgn = -1; sgn <= 1; sgn += 2) {
+    path3 g = (c > 0)
+      ? graph(new triple(real t) {return (sgn*a*cosh(t), a*sinh(t), k*c);}, -T, T, operator ..)
+      : graph(new triple(real t) {return (a*sinh(t), sgn*a*cosh(t), k*c);}, -T, T, operator ..);
+    draw(g, col[i]+lw);
+  }
+}
+
+// axes through the saddle point
+pen ax = gray(0.25)+linewidth(0.6pt);
+draw(Label("$x$", 1), (-2.1,0,0)--(2.4,0,0), ax, Arrow3);
+draw(Label("$y$", 1), (0,-2.1,0)--(0,2.4,0), ax, Arrow3);
+draw(Label("$z$", 1), (0,0,-1.45)--(0,0,1.8), ax, Arrow3);
+// Reserve space around strokes and labels in the interactive viewport.
+currentpicture.addBox((-2.2,-2.2,-1.55),(2.5,2.5,1.95));
+]]></asymptote>
+</image>
+</figure>
+
+<figure xml:id="fig-fsv-saddle-contour">
+<caption>
+Level curves of <m>h(x,y) = x^2 - y^2</m> for the equally spaced values
+<m>c = -2, -1, 0, 1, 2</m>. For <m>c \gt 0</m> they are hyperbolas opening
+left and right, for <m>c \lt 0</m> hyperbolas opening up and down, and
+<m>c = 0</m> gives the two lines <m>y = \pm x</m>, the common asymptotes
+of all the others.
+</caption>
+<image width="74%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-fsv-saddle">
+<diagram dimensions="(470,360)" margins="12">
+<definition>p1r(t) = (cosh(t), sinh(t))</definition>
+<definition>p1l(t) = (-cosh(t), sinh(t))</definition>
+<definition>p2r(t) = (1.4142*cosh(t), 1.4142*sinh(t))</definition>
+<definition>p2l(t) = (-1.4142*cosh(t), 1.4142*sinh(t))</definition>
+<definition>m1u(t) = (sinh(t), cosh(t))</definition>
+<definition>m1d(t) = (sinh(t), -cosh(t))</definition>
+<definition>m2u(t) = (1.4142*sinh(t), 1.4142*cosh(t))</definition>
+<definition>m2d(t) = (1.4142*sinh(t), -1.4142*cosh(t))</definition>
+<coordinates bbox="(0,0,470,360)">
+<coordinates bbox="(-2.5,-2.5,2.5,2.5)" destination="(0,0,360,360)">
+<axes at="sd-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<line at="sd-z1" endpoints="((-2.5,-2.5),(2.5,2.5))" stroke="black" thickness="2.5"/>
+<line at="sd-z2" endpoints="((-2.5,2.5),(2.5,-2.5))" stroke="black" thickness="2.5"/>
+<parametric-curve at="sd-p1r" function="p1r" domain="(-1.5668,1.5668)"
+                  stroke="#E69F00" thickness="2.5"/>
+<parametric-curve at="sd-p1l" function="p1l" domain="(-1.5668,1.5668)"
+                  stroke="#E69F00" thickness="2.5"/>
+<parametric-curve at="sd-p2r" function="p2r" domain="(-1.1700,1.1700)"
+                  stroke="#D55E00" thickness="2.5"/>
+<parametric-curve at="sd-p2l" function="p2l" domain="(-1.1700,1.1700)"
+                  stroke="#D55E00" thickness="2.5"/>
+<parametric-curve at="sd-m1u" function="m1u" domain="(-1.5668,1.5668)"
+                  stroke="#56B4E9" thickness="2.5"/>
+<parametric-curve at="sd-m1d" function="m1d" domain="(-1.5668,1.5668)"
+                  stroke="#56B4E9" thickness="2.5"/>
+<parametric-curve at="sd-m2u" function="m2u" domain="(-1.1700,1.1700)"
+                  stroke="#0072B2" thickness="2.5"/>
+<parametric-curve at="sd-m2d" function="m2d" domain="(-1.1700,1.1700)"
+                  stroke="#0072B2" thickness="2.5"/>
+</coordinates>
+<legend anchor="(466,356)" alignment="sw" scale="0.85" opacity="1">
+<item ref="sd-p2r"><m>c=2</m></item>
+<item ref="sd-p1r"><m>c=1</m></item>
+<item ref="sd-z1"><m>c=0</m></item>
+<item ref="sd-m1u"><m>c=-1</m></item>
+<item ref="sd-m2u"><m>c=-2</m></item>
+</legend>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="Level curves of h equals x squared minus y squared in the x y plane, with a legend to the right giving the value of c on each. Two black lines cross at the origin along the diagonals y equals x and y equals negative x. In the left and right regions between them are hyperbolas opening sideways, orange for c equals one and red for c equals two; in the top and bottom regions are hyperbolas opening up and down, light blue for c equals negative one and dark blue for c equals negative two.">
+  <annotation ref="sd-z1" text="The level curve where h equals zero is the pair of lines y equals x and y equals negative x, crossing at the origin. Every other level curve approaches these lines far from the origin: they are the asymptotes of all the hyperbolas."/>
+  <annotation ref="sd-p1r" text="The level curve where h equals one, the hyperbola x squared minus y squared equals one. It opens left and right, with vertices at plus and minus one on the x axis."/>
+  <annotation ref="sd-p2r" text="The level curve where h equals two, the hyperbola x squared minus y squared equals two, with vertices at plus and minus root two on the x axis, outside the curve for c equals one."/>
+  <annotation ref="sd-m1u" text="The level curve where h equals negative one, the hyperbola y squared minus x squared equals one. It opens up and down, with vertices at plus and minus one on the y axis."/>
+  <annotation ref="sd-m2u" text="The level curve where h equals negative two, the hyperbola y squared minus x squared equals two, with vertices at plus and minus root two on the y axis."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+</section>
+<section xml:id="sec-lim-two-variable">
+<title>Limits of Two-Variable Functions</title>
+<p>
+For a two-variable limit to exist, every path of approach must give the
+same limiting value. For <m>f(x,y)=xy/(x^2+y^2)</m>, defined away from
+the origin, the two coordinate axes give <m>0</m>, while the diagonal
+<m>y=x</m> gives <m>1/2</m>. These different heights show that the limit
+at the origin does not exist.
+</p>
+<figure xml:id="fig-lim-three-paths">
+<caption>
+Three paths of approach to the origin for
+<m>f(x,y) = \frac{xy}{x^2+y^2}</m>. The function is constantly <m>0</m>
+along the two axes and constantly <m>\frac12</m> along the line
+<m>y=x</m>, so no single value is approached and the limit does not
+exist.
+</caption>
+<image width="62%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-lim-three-paths">
+<diagram dimensions="(360,300)" margins="12">
+<definition>diag(t) = (t, t)</definition>
+<coordinates bbox="(-2.4,-2.2,2.6,2.4)">
+<axes at="tp-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<parametric-curve at="tp-diag" function="diag" domain="(-1.95,1.95)"
+                  stroke="#D55E00" thickness="2.5"/>
+<line at="tp-xaxis" endpoints="((-2.1,0),(2.1,0))" stroke="#D55E00"
+      thickness="2.5"/>
+<line at="tp-yaxis" endpoints="((0,-1.9),(0,1.9))" stroke="#D55E00"
+      thickness="2.5"/>
+<point at="tp-O" p="(0,0)" fill="#D55E00"/>
+<label at="tp-diag-lab" anchor="(1.72,1.86)" alignment="ne" color="#D55E00">
+<m>y=x</m>
+</label>
+<label at="tp-f-diag" anchor="(1.05,0.62)" alignment="se" color="#D55E00">
+<m>f=\tfrac12</m>
+</label>
+<label at="tp-f-x" anchor="(1.85,-0.12)" alignment="se" color="#D55E00">
+<m>f=0</m>
+</label>
+<label at="tp-f-y" anchor="(-0.14,1.62)" alignment="nw" color="#D55E00">
+<m>f=0</m>
+</label>
+<label at="tp-x" anchor="(2.42,-0.04)" alignment="se"><m>x</m></label>
+<label at="tp-y" anchor="(-0.04,2.25)" alignment="nw"><m>y</m></label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="The x and y axes and the diagonal line y equals x, all drawn in orange and all passing through the origin. The two axes are labelled f equals zero and the diagonal is labelled f equals one half, showing that the function takes different constant values along different lines through the origin.">
+  <annotation ref="tp-xaxis" text="The path along the x axis, where y equals zero. Along it the function is constantly zero."/>
+  <annotation ref="tp-yaxis" text="The path along the y axis, where x equals zero. Along it the function is also constantly zero."/>
+  <annotation ref="tp-diag" text="The path along the line y equals x. Along it the function is constantly one half, a different value, so the limit at the origin does not exist."/>
+  <annotation ref="tp-O" text="The origin, the point being approached."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<figure xml:id="fig-lim-paths-interactive">
+<caption>
+The three paths of <xref ref="fig-lim-three-paths"/>, lifted onto the
+surface <m>z = \dfrac{xy}{x^2+y^2}</m>. Choosing <m>y=0</m> or <m>x=0</m>
+lifts to a path at height <m>0</m>, while <m>y=x</m> lifts to one at
+height <m>\frac12</m>, so the two approaches deliver two different
+numbers and the limit cannot exist.
+</caption>
+<!-- aspect 6:5 rather than 3:2: the equation card and the value readout sit
+     in a bar above the picture (and the caption in a strip below it) instead
+     of overlaying it, so the frame needs the extra height to keep the
+     surface itself the same size. -->
+<interactive xml:id="interactive-lim-paths"
+             iframe="limit-paths-manim.html" width="100%" aspect="6:5">
+<instructions>
+<p>
+The floor of the picture is the <m>xy</m>-plane and the surface above it
+is <m>z = f(x,y) = \frac{xy}{x^2+y^2}</m>. The three coloured lines on the
+floor are the paths <m>y=0</m>, <m>x=0</m> and <m>y=x</m>; click one, or
+use the buttons, to draw the part of the surface lying over it. The value
+that path approaches is written beside it and collected in the panel
+above the picture. <q>Approach <m>(0,0)</m></q> slides a point in along every
+chosen path at once, <q>Top view</q> looks straight down at the three
+lines, and dragging turns the picture.
+</p>
+</instructions>
+</interactive>
+</figure>
+
+<figure xml:id="fig-lim-asymptote-x-axis">
+<caption>
+The path <m>y=0</m> from <xref ref="fig-lim-paths-interactive"/>,
+lifted onto the surface. Since <m>f(x,0)=0</m> for <m>x\ne0</m>,
+the lifted path approaches height <m>0</m>. The domain path is
+shown on a lower reference plane to separate it from its surface trace;
+the open circle marks a limiting position where the function is undefined.
+</caption>
+<image width="90%">
+<shortdescription>A rotatable surface with the path y=0 highlighted and its trace at height zero.</shortdescription>
+<description><p>
+The surface is z equals x y divided by x squared plus y squared, drawn
+over a punctured disk with a small hole at the origin. The green trace lies at height zero on both sides of the missing point over the origin.
+A matching path is drawn on a reference plane below the surface, with
+vertical guide lines connecting it to the trace. Arrows point inward
+from both sides. Dragging rotates the diagram.
+</p></description>
+<asymptote label="asymptote-lim-x-axis"><![CDATA[
+import graph3;
+viewportmargin=(16,16);
+// Retain interactive WebGL for HTML and vector graphics for print.
+if(settings.outformat != "html") settings.render=0;
+size(12cm,10cm);
+triple eye=(4,-7,4);
+currentprojection=orthographic(camera=eye,up=Z,target=(0,0,-0.25));
+currentlight=light(gray(0.65),specularfactor=0.15,(4,-3,6),(-4,-1,3));
+
+// xy/(x^2+y^2) = (1/2) sin(2 theta), independent of radius.
+// Exclude r=0: the function has no value at the origin.
+real inner=0.06, outer=1.7, floorZ=-1.05;
+triple surfacePoint(pair p) {
+  return (p.x*cos(p.y),p.x*sin(p.y),0.5*sin(2*p.y));
+}
+surface s=surface(surfacePoint,(inner,0),(outer,2*pi),8,96);
+draw(s,surfacepen=gray(0.82)+opacity(0.25),
+     meshpen=gray(0.65)+opacity(0.15)+linewidth(0.15pt));
+
+// This lower grid is a diagrammatic copy of the domain, not z=0.
+pen grid=gray(0.8)+linewidth(0.3pt);
+for(int i=-3;i<=3;++i) {
+  real u=0.55*i;
+  draw((-1.8,u,floorZ)--(1.8,u,floorZ),grid);
+  draw((u,-1.8,floorZ)--(u,1.8,floorZ),grid);
+}
+pen axisPen=gray(0.35)+linewidth(0.6pt);
+draw(Label("$x$",1),(-1.9,0,floorZ)--(2.1,0,floorZ),axisPen,Arrow3);
+draw(Label("$y$",1),(0,-1.9,floorZ)--(0,2.1,floorZ),axisPen,Arrow3);
+draw(Label("$z$",1),(0,0,-0.65)--(0,0,1.0),axisPen+dashed,Arrow3);
+label("$0$",(0,0,0),W,gray(0.35));
+label("$\frac12$",(0,0,0.5),W,gray(0.35));
+
+real theta=0, level=0;
+triple direction=(cos(theta),sin(theta),0);
+pen accent=rgb("83C167");
+pen tracePen=accent+linewidth(2.6pt);
+// Draw both halves separately so the highlighted trace never fills the hole.
+for(int side=-1;side<=1;side+=2) {
+  triple far=side*outer*direction;
+  triple near=side*inner*direction;
+  draw(far+floorZ*Z--near+floorZ*Z,accent+linewidth(1.8pt),Arrow3(size=5));
+  draw(far+level*Z--near+level*Z,tracePen,Arrow3(size=5));
+  for(int j=1;j<=5;++j) {
+    triple v=side*(outer*j/5.5)*direction;
+    draw(v+floorZ*Z--v+level*Z,accent+opacity(0.5)+dashed+linewidth(0.5pt));
+  }
+}
+// A ring rather than a filled dot: this is a limit, not a defined value.
+draw(circle((0,0,level),0.045,eye),accent+linewidth(1.4pt));
+dot((0,0,floorZ),gray(0.35)+linewidth(3pt));
+label("$(0,0)$",(0,0,floorZ),SW,gray(0.35));
+label("$y=0$",1.55*direction+floorZ*Z+0.3*(sin(theta),-cos(theta),0),S,accent);
+label("$f=0$",-1.1*direction+(level+0.13)*Z,N,accent);
+label("$z=\dfrac{xy}{x^2+y^2}$",(-2.1,1.5,1.0),E,gray(0.3));
+currentpicture.addBox((-2.2,-2.2,-1.2),(2.2,2.2,1.35));
+]]></asymptote>
+</image>
+</figure>
+
+<figure xml:id="fig-lim-asymptote-y-axis">
+<caption>
+The path <m>x=0</m> from <xref ref="fig-lim-paths-interactive"/>,
+lifted onto the surface. Since <m>f(0,y)=0</m> for <m>y\ne0</m>,
+the lifted path approaches height <m>0</m>. The domain path is
+shown on a lower reference plane to separate it from its surface trace;
+the open circle marks a limiting position where the function is undefined.
+</caption>
+<image width="90%">
+<shortdescription>A rotatable surface with the path x=0 highlighted and its trace at height zero.</shortdescription>
+<description><p>
+The surface is z equals x y divided by x squared plus y squared, drawn
+over a punctured disk with a small hole at the origin. The blue trace lies at height zero on both sides of the missing point over the origin.
+A matching path is drawn on a reference plane below the surface, with
+vertical guide lines connecting it to the trace. Arrows point inward
+from both sides. Dragging rotates the diagram.
+</p></description>
+<asymptote label="asymptote-lim-y-axis"><![CDATA[
+import graph3;
+viewportmargin=(16,16);
+// Retain interactive WebGL for HTML and vector graphics for print.
+if(settings.outformat != "html") settings.render=0;
+size(12cm,10cm);
+triple eye=(4,-7,4);
+currentprojection=orthographic(camera=eye,up=Z,target=(0,0,-0.25));
+currentlight=light(gray(0.65),specularfactor=0.15,(4,-3,6),(-4,-1,3));
+
+// xy/(x^2+y^2) = (1/2) sin(2 theta), independent of radius.
+// Exclude r=0: the function has no value at the origin.
+real inner=0.06, outer=1.7, floorZ=-1.05;
+triple surfacePoint(pair p) {
+  return (p.x*cos(p.y),p.x*sin(p.y),0.5*sin(2*p.y));
+}
+surface s=surface(surfacePoint,(inner,0),(outer,2*pi),8,96);
+draw(s,surfacepen=gray(0.82)+opacity(0.25),
+     meshpen=gray(0.65)+opacity(0.15)+linewidth(0.15pt));
+
+// This lower grid is a diagrammatic copy of the domain, not z=0.
+pen grid=gray(0.8)+linewidth(0.3pt);
+for(int i=-3;i<=3;++i) {
+  real u=0.55*i;
+  draw((-1.8,u,floorZ)--(1.8,u,floorZ),grid);
+  draw((u,-1.8,floorZ)--(u,1.8,floorZ),grid);
+}
+pen axisPen=gray(0.35)+linewidth(0.6pt);
+draw(Label("$x$",1),(-1.9,0,floorZ)--(2.1,0,floorZ),axisPen,Arrow3);
+draw(Label("$y$",1),(0,-1.9,floorZ)--(0,2.1,floorZ),axisPen,Arrow3);
+draw(Label("$z$",1),(0,0,-0.65)--(0,0,1.0),axisPen+dashed,Arrow3);
+label("$0$",(0,0,0),W,gray(0.35));
+label("$\frac12$",(0,0,0.5),W,gray(0.35));
+
+real theta=pi/2, level=0;
+triple direction=(cos(theta),sin(theta),0);
+pen accent=rgb("58C4DD");
+pen tracePen=accent+linewidth(2.6pt);
+// Draw both halves separately so the highlighted trace never fills the hole.
+for(int side=-1;side<=1;side+=2) {
+  triple far=side*outer*direction;
+  triple near=side*inner*direction;
+  draw(far+floorZ*Z--near+floorZ*Z,accent+linewidth(1.8pt),Arrow3(size=5));
+  draw(far+level*Z--near+level*Z,tracePen,Arrow3(size=5));
+  for(int j=1;j<=5;++j) {
+    triple v=side*(outer*j/5.5)*direction;
+    draw(v+floorZ*Z--v+level*Z,accent+opacity(0.5)+dashed+linewidth(0.5pt));
+  }
+}
+// A ring rather than a filled dot: this is a limit, not a defined value.
+draw(circle((0,0,level),0.045,eye),accent+linewidth(1.4pt));
+dot((0,0,floorZ),gray(0.35)+linewidth(3pt));
+label("$(0,0)$",(0,0,floorZ),SW,gray(0.35));
+label("$x=0$",1.55*direction+floorZ*Z+0.3*(sin(theta),-cos(theta),0),S,accent);
+label("$f=0$",-1.1*direction+(level+0.13)*Z,N,accent);
+label("$z=\dfrac{xy}{x^2+y^2}$",(-2.1,1.5,1.0),E,gray(0.3));
+currentpicture.addBox((-2.2,-2.2,-1.2),(2.2,2.2,1.35));
+]]></asymptote>
+</image>
+</figure>
+
+<figure xml:id="fig-lim-asymptote-diagonal">
+<caption>
+The path <m>y=x</m> from <xref ref="fig-lim-paths-interactive"/>,
+lifted onto the surface. Since <m>f(x,x)=\frac12</m> for <m>x\ne0</m>,
+the lifted path approaches height <m>\frac12</m>. The domain path is
+shown on a lower reference plane to separate it from its surface trace;
+the open circle marks a limiting position where the function is undefined.
+This differs from the value along either axis, so the two-variable limit
+does not exist.
+</caption>
+<image width="90%">
+<shortdescription>A rotatable surface with the path y=x highlighted and its trace at height one half.</shortdescription>
+<description><p>
+The surface is z equals x y divided by x squared plus y squared, drawn
+over a punctured disk with a small hole at the origin. The gold trace lies at height one half on both sides of the missing point over the origin, unlike the height zero traces along the axes.
+A matching path is drawn on a reference plane below the surface, with
+vertical guide lines connecting it to the trace. Arrows point inward
+from both sides. Dragging rotates the diagram.
+</p></description>
+<asymptote label="asymptote-lim-diagonal"><![CDATA[
+import graph3;
+viewportmargin=(16,16);
+// Retain interactive WebGL for HTML and vector graphics for print.
+if(settings.outformat != "html") settings.render=0;
+size(12cm,10cm);
+triple eye=(4,-7,4);
+currentprojection=orthographic(camera=eye,up=Z,target=(0,0,-0.25));
+currentlight=light(gray(0.65),specularfactor=0.15,(4,-3,6),(-4,-1,3));
+
+// xy/(x^2+y^2) = (1/2) sin(2 theta), independent of radius.
+// Exclude r=0: the function has no value at the origin.
+real inner=0.06, outer=1.7, floorZ=-1.05;
+triple surfacePoint(pair p) {
+  return (p.x*cos(p.y),p.x*sin(p.y),0.5*sin(2*p.y));
+}
+surface s=surface(surfacePoint,(inner,0),(outer,2*pi),8,96);
+draw(s,surfacepen=gray(0.82)+opacity(0.25),
+     meshpen=gray(0.65)+opacity(0.15)+linewidth(0.15pt));
+
+// This lower grid is a diagrammatic copy of the domain, not z=0.
+pen grid=gray(0.8)+linewidth(0.3pt);
+for(int i=-3;i<=3;++i) {
+  real u=0.55*i;
+  draw((-1.8,u,floorZ)--(1.8,u,floorZ),grid);
+  draw((u,-1.8,floorZ)--(u,1.8,floorZ),grid);
+}
+pen axisPen=gray(0.35)+linewidth(0.6pt);
+draw(Label("$x$",1),(-1.9,0,floorZ)--(2.1,0,floorZ),axisPen,Arrow3);
+draw(Label("$y$",1),(0,-1.9,floorZ)--(0,2.1,floorZ),axisPen,Arrow3);
+draw(Label("$z$",1),(0,0,-0.65)--(0,0,1.0),axisPen+dashed,Arrow3);
+label("$0$",(0,0,0),W,gray(0.35));
+label("$\frac12$",(0,0,0.5),W,gray(0.35));
+
+real theta=pi/4, level=0.5;
+triple direction=(cos(theta),sin(theta),0);
+pen accent=rgb("F0AC5F");
+pen tracePen=accent+linewidth(2.6pt);
+// Draw both halves separately so the highlighted trace never fills the hole.
+for(int side=-1;side<=1;side+=2) {
+  triple far=side*outer*direction;
+  triple near=side*inner*direction;
+  draw(far+floorZ*Z--near+floorZ*Z,accent+linewidth(1.8pt),Arrow3(size=5));
+  draw(far+level*Z--near+level*Z,tracePen,Arrow3(size=5));
+  for(int j=1;j<=5;++j) {
+    triple v=side*(outer*j/5.5)*direction;
+    draw(v+floorZ*Z--v+level*Z,accent+opacity(0.5)+dashed+linewidth(0.5pt));
+  }
+}
+// A ring rather than a filled dot: this is a limit, not a defined value.
+draw(circle((0,0,level),0.045,eye),accent+linewidth(1.4pt));
+dot((0,0,floorZ),gray(0.35)+linewidth(3pt));
+label("$(0,0)$",(0,0,floorZ),SW,gray(0.35));
+label("$y=x$",1.55*direction+floorZ*Z+0.3*(sin(theta),-cos(theta),0),S,accent);
+label("$f=\frac12$",-1.1*direction+(level+0.13)*Z,N,accent);
+label("$z=\dfrac{xy}{x^2+y^2}$",(-2.1,1.5,1.0),E,gray(0.3));
+currentpicture.addBox((-2.2,-2.2,-1.2),(2.2,2.2,1.35));
+]]></asymptote>
+</image>
+</figure>
+</section>
+<section xml:id="sec-pd-definition">
+<title>Definition of Partial Derivatives</title>
+<p>
+On the surface <m>z=f(x,y)=3-0.25x^2-0.45y^2</m>, hold <m>y=y_0</m>
+fixed to obtain a curve whose tangent slope is <m>f_x(x_0,y_0)</m>.
+Holding <m>x=x_0</m> fixed instead gives the tangent slope
+<m>f_y(x_0,y_0)</m>. The figures compare these two traces at
+<m>P=(0.5,0.5,2.825)</m>.
+</p>
+<figure xml:id="fig-pd-tangent-x">
+<caption>
+The curve <m>z = f(x,y_0)</m> cut from the surface by the vertical plane
+<m>y = y_0</m>, and its tangent line at <m>P</m>. The slope of that
+tangent line is <m>\left.\frac{\partial f}{\partial x}\right|_{(x_0,y_0)}</m>.
+</caption>
+<image width="86%">
+<description>
+<p>
+A grey surface with a green curve drawn on it through a magenta point P.
+The curve is the trace of the surface in the plane y equals y nought, and
+a blue tangent line touches it at P. A legend in the top left corner names
+the surface, the curve, the tangent line and the point P.
+</p>
+</description>
+<latex-image><![CDATA[
+\begin{tikzpicture}[font=\fontfamily{phv}\selectfont]
+\begin{axis}[
+  width=12cm, height=9cm,
+  view={-35}{20},
+  xmin=-2.3, xmax=2.3, ymin=-2.3, ymax=2.3, zmin=0, zmax=5.2,
+  xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+  ticks=none, clip=false,
+  legend cell align=left,
+  legend style={
+    at={(0.01,0.99)}, anchor=north west,
+    draw=gray!50, fill=white, fill opacity=0.92, text opacity=1,
+    row sep=1.5pt, inner sep=4pt, font=\fontfamily{phv}\selectfont,
+  },
+]
+% the surface
+\addplot3[surf, shader=flat, draw=gray!55, fill=gray!30,
+          fill opacity=0.20, draw opacity=0.20, forget plot,
+          domain=-2:2, y domain=-2:2, samples=15]
+  {3 - 0.25*x^2 - 0.45*y^2};
+% trace in the plane y = y0 (green)
+% A white under-stroke separates the parabola from the surface mesh.
+\addplot3[line width=2.4pt, green!55!black, forget plot,
+          preaction={draw=white, line width=4.2pt, opacity=1},
+          line cap=round, line join=round,
+          domain=-2:2, samples=65, samples y=0]
+  ({x},{0.5},{2.8875 - 0.25*x^2});
+% tangent line in y = y0, slope df/dx = -0.25
+\addplot3[very thick, cyan!60!black, forget plot,
+          domain=-1.3:1.3, samples=2, samples y=0]
+  ({0.5+x},{0.5},{2.825 - 0.25*x});
+% the point P
+\addplot3[only marks, mark=*, mark size=1.9, color=magenta, forget plot]
+  coordinates {(0.5,0.5,2.825)};
+\node[magenta, anchor=south west, font=\fontfamily{phv}\selectfont] at (axis cs:0.5,0.5,2.9) {$P$};
+% the legend, built by hand so that the surface gets an entry too
+\addlegendimage{area legend, draw=gray!55, fill=gray!30, fill opacity=0.20}
+\addlegendentry{$z=f(x,y)$}
+\addlegendimage{line width=2.4pt, green!55!black}
+\addlegendentry{$z=f(x,y_0)$}
+\addlegendimage{very thick, cyan!60!black}
+\addlegendentry{Tangent line in $y=y_0$}
+\addlegendimage{only marks, mark=*, mark size=1.9, color=magenta}
+\addlegendentry{$P=(x_0,y_0,f(x_0,y_0))$}
+\end{axis}
+\end{tikzpicture}
+]]></latex-image>
+</image>
+</figure>
+
+<figure xml:id="fig-pd-tangent-x-asymptote">
+<caption>
+Asymptote copy of <xref ref="fig-pd-tangent-x"/>: the curve
+<m>z=f(x,y_0)</m> and its tangent line in the plane <m>y=y_0</m>.
+The tangent slope at <m>P</m> is <m>\left.\frac{\partial f}{\partial x}\right|_{(x_0,y_0)}</m>.
+</caption>
+<image width="86%">
+<shortdescription>A grey surface with a green trace, a blue tangent line, and a magenta point P.</shortdescription>
+<description><p>
+The surface z equals 3 minus one quarter x squared minus 0.45 y squared.
+The trace holds y fixed at 0.5 and passes through P at (0.5, 0.5, 2.825).
+Its tangent line at P has slope minus 0.25.
+</p></description>
+<asymptote label="asymptote-pd-tangent-x"><![CDATA[
+import graph3;
+// Keep HTML interactive; use vector rendering only for print output.
+if(settings.outformat != "html") settings.render=0;
+size(12cm,9cm);
+currentprojection=orthographic(camera=(-6,-8,4),up=Z);
+currentlight=light(gray(0.6),specularfactor=0.2,(4,-3,6),(-4,-1,3));
+
+triple surfacePoint(pair p) {
+  return (p.x,p.y,3-0.25*p.x^2-0.45*p.y^2);
+}
+surface s=surface(surfacePoint,(-2,-2),(2,2),14,14);
+draw(s,surfacepen=gray(0.75)+opacity(0.35),
+     meshpen=gray(0.55)+opacity(0.4)+linewidth(0.3pt));
+
+pen tracePen=rgb("008000")+linewidth(1.8pt);
+pen tangentPen=rgb("009999")+linewidth(1.8pt);
+draw(graph(new triple(real t) {return (t,0.5,2.8875-0.25*t^2);},-2,2),tracePen);
+draw(graph(new triple(real t) {return (0.5+t,0.5,2.825-0.25*t);},-1.3,1.3),tangentPen);
+triple P=(0.5,0.5,2.825);
+dot(P,magenta+linewidth(5pt));
+label("$P$",P+0.12Z,NE,magenta);
+
+pen ax=gray(0.25)+linewidth(0.6pt);
+draw(Label("$x$",1),(-2.3,-2.3,0)--(2.3,-2.3,0),ax,Arrow3);
+draw(Label("$y$",1),(-2.3,-2.3,0)--(-2.3,2.3,0),ax,Arrow3);
+draw(Label("$z$",1),(-2.3,-2.3,0)--(-2.3,-2.3,5.2),ax,Arrow3);
+
+// Legend in the scene, with the same colours as the TikZ original.
+label("$z=f(x,y)$",(-3,1.8,5.2),E,gray(0.4));
+label("$z=f(x,y_0)$",(-3,1.8,4.7),E,tracePen);
+label("Tangent line in $y=y_0$",(-3,1.8,4.2),E,tangentPen);
+label("$P=(x_0,y_0,f(x_0,y_0))$",(-3,1.8,3.7),E,magenta);
+]]></asymptote>
+</image>
+</figure>
+
+<figure xml:id="fig-pd-tangent-y">
+<caption>
+The curve <m>z = f(x_0,y)</m> cut from the surface by the vertical plane
+<m>x = x_0</m>, and its tangent line at <m>P</m>. The slope of that
+tangent line is <m>\left.\frac{\partial f}{\partial y}\right|_{(x_0,y_0)}</m>.
+</caption>
+<image width="86%">
+<description>
+<p>
+A grey surface with an amber curve drawn on it through a magenta point P.
+The curve is the trace of the surface in the plane x equals x nought, and
+a dark red tangent line touches it at P. A legend in the top left corner
+names the surface, the curve, the tangent line and the point P.
+</p>
+</description>
+<latex-image><![CDATA[
+\begin{tikzpicture}[font=\fontfamily{phv}\selectfont]
+\begin{axis}[
+  width=12cm, height=9cm,
+  view={-35}{20},
+  xmin=-2.3, xmax=2.3, ymin=-2.3, ymax=2.3, zmin=0, zmax=5.2,
+  xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+  ticks=none, clip=false,
+  legend cell align=left,
+  legend style={
+    at={(0.01,0.99)}, anchor=north west,
+    draw=gray!50, fill=white, fill opacity=0.92, text opacity=1,
+    row sep=1.5pt, inner sep=4pt, font=\fontfamily{phv}\selectfont,
+  },
+]
+% the surface
+\addplot3[surf, shader=flat, draw=gray!55, fill=gray!30,
+          fill opacity=0.20, draw opacity=0.20, forget plot,
+          domain=-2:2, y domain=-2:2, samples=15]
+  {3 - 0.25*x^2 - 0.45*y^2};
+% trace in the plane x = x0 (amber)
+% A white under-stroke separates the parabola from the surface mesh.
+\addplot3[line width=2.4pt, orange!85!black, forget plot,
+          preaction={draw=white, line width=4.2pt, opacity=1},
+          line cap=round, line join=round,
+          domain=-2:2, samples=65, samples y=0]
+  ({0.5},{x},{2.9375 - 0.45*x^2});
+% tangent line in x = x0, slope df/dy = -0.45
+\addplot3[very thick, purple!60!black, forget plot,
+          domain=-1.3:1.3, samples=2, samples y=0]
+  ({0.5},{0.5+x},{2.825 - 0.45*x});
+% the point P
+\addplot3[only marks, mark=*, mark size=1.9, color=magenta, forget plot]
+  coordinates {(0.5,0.5,2.825)};
+\node[magenta, anchor=south west, font=\fontfamily{phv}\selectfont] at (axis cs:0.5,0.5,2.9) {$P$};
+% the legend, built by hand so that the surface gets an entry too
+\addlegendimage{area legend, draw=gray!55, fill=gray!30, fill opacity=0.20}
+\addlegendentry{$z=f(x,y)$}
+\addlegendimage{line width=2.4pt, orange!85!black}
+\addlegendentry{$z=f(x_0,y)$}
+\addlegendimage{very thick, purple!60!black}
+\addlegendentry{Tangent line in $x=x_0$}
+\addlegendimage{only marks, mark=*, mark size=1.9, color=magenta}
+\addlegendentry{$P=(x_0,y_0,f(x_0,y_0))$}
+\end{axis}
+\end{tikzpicture}
+]]></latex-image>
+</image>
+</figure>
+
+<figure xml:id="fig-pd-tangent-y-asymptote">
+<caption>
+Asymptote copy of <xref ref="fig-pd-tangent-y"/>: the curve
+<m>z=f(x_0,y)</m> and its tangent line in the plane <m>x=x_0</m>.
+The tangent slope at <m>P</m> is <m>\left.\frac{\partial f}{\partial y}\right|_{(x_0,y_0)}</m>.
+</caption>
+<image width="86%">
+<shortdescription>A grey surface with an amber trace, a purple tangent line, and a magenta point P.</shortdescription>
+<description><p>
+The surface z equals 3 minus one quarter x squared minus 0.45 y squared.
+The trace holds x fixed at 0.5 and passes through P at (0.5, 0.5, 2.825).
+Its tangent line at P has slope minus 0.45.
+</p></description>
+<asymptote label="asymptote-pd-tangent-y"><![CDATA[
+import graph3;
+// Keep HTML interactive; use vector rendering only for print output.
+if(settings.outformat != "html") settings.render=0;
+size(12cm,9cm);
+currentprojection=orthographic(camera=(-6,-8,4),up=Z);
+currentlight=light(gray(0.6),specularfactor=0.2,(4,-3,6),(-4,-1,3));
+
+triple surfacePoint(pair p) {
+  return (p.x,p.y,3-0.25*p.x^2-0.45*p.y^2);
+}
+surface s=surface(surfacePoint,(-2,-2),(2,2),14,14);
+draw(s,surfacepen=gray(0.75)+opacity(0.35),
+     meshpen=gray(0.55)+opacity(0.4)+linewidth(0.3pt));
+
+pen tracePen=orange+linewidth(1.8pt);
+pen tangentPen=rgb("660066")+linewidth(1.8pt);
+draw(graph(new triple(real t) {return (0.5,t,2.9375-0.45*t^2);},-2,2),tracePen);
+draw(graph(new triple(real t) {return (0.5,0.5+t,2.825-0.45*t);},-1.3,1.3),tangentPen);
+triple P=(0.5,0.5,2.825);
+dot(P,magenta+linewidth(5pt));
+label("$P$",P+0.12Z,NE,magenta);
+
+pen ax=gray(0.25)+linewidth(0.6pt);
+draw(Label("$x$",1),(-2.3,-2.3,0)--(2.3,-2.3,0),ax,Arrow3);
+draw(Label("$y$",1),(-2.3,-2.3,0)--(-2.3,2.3,0),ax,Arrow3);
+draw(Label("$z$",1),(-2.3,-2.3,0)--(-2.3,-2.3,5.2),ax,Arrow3);
+
+// Legend in the scene, with the same colours as the TikZ original.
+label("$z=f(x,y)$",(-3,1.8,5.2),E,gray(0.4));
+label("$z=f(x_0,y)$",(-3,1.8,4.7),E,tracePen);
+label("Tangent line in $x=x_0$",(-3,1.8,4.2),E,tangentPen);
+label("$P=(x_0,y_0,f(x_0,y_0))$",(-3,1.8,3.7),E,magenta);
+]]></asymptote>
+</image>
+</figure>
+</section>
+</chapter>
