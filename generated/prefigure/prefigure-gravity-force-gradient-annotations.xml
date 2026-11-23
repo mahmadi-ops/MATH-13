@@ -1,0 +1,120 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-gravity-force-gradient-figure" speech2="Upward gradient arrows and downward force arrows meeting the horizontal equipotential surfaces at right angles.">
+      <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-gravity-force-gradient-gb-ground</active>
+        <active>prefigure-gravity-force-gradient-gb-axis</active>
+        <active>prefigure-gravity-force-gradient-gb-level1</active>
+        <active>prefigure-gravity-force-gradient-gb-level2</active>
+        <active>prefigure-gravity-force-gradient-gb-level3</active>
+        <active>prefigure-gravity-force-gradient-gb-grad2</active>
+        <active>prefigure-gravity-force-gradient-gb-force2</active>
+        <active>prefigure-gravity-force-gradient-gb-right-angle2</active>
+        <active>prefigure-gravity-force-gradient-gb-grad1</active>
+        <active>prefigure-gravity-force-gradient-gb-force1</active>
+        <active>prefigure-gravity-force-gradient-gb-grad3</active>
+        <active>prefigure-gravity-force-gradient-gb-force3</active>
+      </children>
+      <components>
+        <active>prefigure-gravity-force-gradient-gb-ground</active>
+        <active>prefigure-gravity-force-gradient-gb-axis</active>
+        <active>prefigure-gravity-force-gradient-gb-level1</active>
+        <active>prefigure-gravity-force-gradient-gb-level2</active>
+        <active>prefigure-gravity-force-gradient-gb-level3</active>
+        <active>prefigure-gravity-force-gradient-gb-grad2</active>
+        <active>prefigure-gravity-force-gradient-gb-force2</active>
+        <active>prefigure-gravity-force-gradient-gb-right-angle2</active>
+        <active>prefigure-gravity-force-gradient-gb-grad1</active>
+        <active>prefigure-gravity-force-gradient-gb-force1</active>
+        <active>prefigure-gravity-force-gradient-gb-grad3</active>
+        <active>prefigure-gravity-force-gradient-gb-force3</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-gravity-force-gradient-gb-ground" speech2="The surface of the earth, a hatched horizontal line across the bottom of the figure.">
+      <active>prefigure-gravity-force-gradient-gb-ground</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-force-gradient-gb-axis" speech2="A vertical axis labelled y, measuring height above the surface.">
+      <active>prefigure-gravity-force-gradient-gb-axis</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-force-gradient-gb-level1" speech2="The lowest equipotential surface, a dashed blue horizontal line labelled U equals m g y one.">
+      <active>prefigure-gravity-force-gradient-gb-level1</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-force-gradient-gb-level2" speech2="The middle equipotential surface, a dashed blue horizontal line labelled U equals m g y two, the one the mass sits on.">
+      <active>prefigure-gravity-force-gradient-gb-level2</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-force-gradient-gb-level3" speech2="The highest equipotential surface, a dashed blue horizontal line labelled U equals m g y three.">
+      <active>prefigure-gravity-force-gradient-gb-level3</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-force-gradient-gb-grad2" speech2="The gradient of U at the mass, a green arrow of length m g pointing straight up, in the direction in which the potential energy increases fastest.">
+      <active>prefigure-gravity-force-gradient-gb-grad2</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-force-gradient-gb-force2" speech2="The gravitational force at the mass, a vermillion arrow of the same length pointing straight down, opposite the gradient, in the direction in which the potential energy decreases fastest.">
+      <active>prefigure-gravity-force-gradient-gb-force2</active>
+      <position>7</position>
+      <parents>
+        <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-force-gradient-gb-right-angle2" speech2="A small square marking the right angle between these arrows and the equipotential surface through the mass.">
+      <active>prefigure-gravity-force-gradient-gb-right-angle2</active>
+      <position>8</position>
+      <parents>
+        <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-force-gradient-gb-grad1" speech2="The gradient at a second point, on the lowest surface: an identical green arrow pointing straight up, since the field is uniform.">
+      <active>prefigure-gravity-force-gradient-gb-grad1</active>
+      <position>9</position>
+      <parents>
+        <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-force-gradient-gb-force1" speech2="The force at that second point, an identical vermillion arrow pointing straight down.">
+      <active>prefigure-gravity-force-gradient-gb-force1</active>
+      <position>10</position>
+      <parents>
+        <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-force-gradient-gb-grad3" speech2="The gradient at a third point, on the highest surface: again the same green arrow pointing straight up.">
+      <active>prefigure-gravity-force-gradient-gb-grad3</active>
+      <position>11</position>
+      <parents>
+        <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-gravity-force-gradient-gb-force3" speech2="The force at that third point, again the same vermillion arrow pointing straight down.">
+      <active>prefigure-gravity-force-gradient-gb-force3</active>
+      <position>12</position>
+      <parents>
+        <grouped>prefigure-gravity-force-gradient-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
